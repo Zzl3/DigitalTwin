@@ -21,7 +21,7 @@ export default {
           },
         },
         legend: {
-            top: '20%'
+          top: '20%'
         },
         grid: {
           left: "3%",

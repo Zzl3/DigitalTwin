@@ -1,0 +1,61 @@
+<template>
+    <div class="table-wrapper">
+        <el-table :data="tableData" style="font-size: 10px" :row-style="{ height: '40px' }" :cell-style="{ padding: '4px' }"
+            :header-cell-style="{ background: '#eef1f6', color: '#606266' }">
+            <el-table-column prop="prop1" label="空压站" width="85" align="center">
+            </el-table-column>
+            <el-table-column prop="prop2" label="使用率" width="70" align="center">
+            </el-table-column>
+            <el-table-column prop="prop3" label="电费" width="70" align="center">
+            </el-table-column>
+            <el-table-column prop="prop4" label="压力" width="70" align="center">
+            </el-table-column>
+            <el-table-column prop="prop5" label="用户数" width="85" align="center">
+            </el-table-column>
+        </el-table>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            tableData: [{
+                prop1: '空压站1',
+                prop2: '72.36%',
+                prop3: '12302',
+                prop4: '784Kpa',
+                prop5: '3',
+            }, {
+                prop1: '空压站2',
+                prop2: '66.52%',
+                prop3: '11254',
+                prop4: '803Kpa',
+                prop5: '2',
+            }, {
+                prop1: '空压站3',
+                prop2: '75.26%',
+                prop3: '9563',
+                prop4: '769Kpa',
+                prop5: '2',
+            },]
+        }
+    }
+}
+</script>
+
+<style scoped>
+.table-wrapper /deep/ .el-table,
+.el-table__expanded-cell {
+    background-color: transparent;
+}
+
+.table-wrapper /deep/ .el-table tr {
+    background-color: transparent !important;
+}
+
+.table-wrapper /deep/ .el-table--enable-row-transition .el-table__body td,
+.el-table .cell {
+    background-color: transparent;
+}
+</style>
