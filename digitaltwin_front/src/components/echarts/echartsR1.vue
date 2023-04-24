@@ -1,5 +1,5 @@
 <template>
-    <div id="r1" style="width: 400px; height:265px"></div>
+    <div id="r1" style="width: 340px; height:240px"></div>
 </template>
 
 <script>
@@ -28,6 +28,7 @@ export default {
                     }
                 },
                 legend: {
+                    top: '10%',
                     data: ['电费', '日平均压力']
                 },
                 xAxis: [

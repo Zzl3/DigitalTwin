@@ -1,0 +1,226 @@
+<template>
+  <div id="m4" style="width: 600px; height: 180px"></div>
+</template>
+
+<script>
+export default {
+  mounted() {
+    this.draw();
+  },
+  methods: {
+    draw() {
+      var myChart = this.$echarts.init(document.getElementById("m4"));
+      var option = {
+        tooltip: {
+          trigger: "axis",
+          axisPointer: { type: "shadow" },
+          // formatter:'{c}' ,
+        },
+        grid: {
+          left: "0",
+          top: "30",
+          right: "20",
+          bottom: "5",
+          containLabel: true,
+        },
+        legend: {
+          data: ["优化前", "优化后"],
+          right: "center",
+          top: 0,
+          textStyle: {
+            color: "#000000",
+          },
+          itemWidth: 12,
+          itemHeight: 10,
+          // itemGap: 35
+        },
+
+        xAxis: [
+          {
+            type: "category",
+            boundaryGap: false,
+            axisLabel: {
+              rotate: 0,
+              textStyle: {
+                color: "rgba(0,0,0,.6)",
+                fontSize: 14,
+              },
+            },
+            axisLine: {
+              lineStyle: {
+                color: "rgba(0,0,0,.1)",
+              },
+            },
+            data: [
+              "00:00",
+              "02:00",
+              "04:00",
+              "06:00",
+              "08:00",
+              "10:00",
+              "12:00",
+              "14:00",
+              "16:00",
+              "18:00",
+              "20:00",
+              "22:00",
+            ],
+          },
+          {
+            axisPointer: { show: false },
+            axisLine: { show: false },
+            position: "bottom",
+            offset: 20,
+          },
+        ],
+        yAxis: [
+          {
+            type: "value",
+            axisTick: { show: false },
+            // splitNumber: 6,
+            axisLine: {
+              lineStyle: {
+                color: "rgba(0,0,0,.1)",
+              },
+            },
+            axisLabel: {
+              formatter: "{value} kw",
+              textStyle: {
+                color: "rgba(0,0,0,.6)",
+                fontSize: 14,
+              },
+            },
+
+            splitLine: {
+              lineStyle: {
+                color: "rgba(0,0,0,.1)",
+              },
+            },
+          },
+        ],
+        series: [
+          {
+            name: "优化前",
+            type: "line",
+            smooth: true,
+            symbol: "circle",
+            symbolSize: 5,
+            showSymbol: false,
+            lineStyle: {
+              normal: {
+                color: "rgba(228, 228, 126, 1)",
+                width: 2,
+              },
+            },
+            areaStyle: {
+              normal: {
+                color: new this.$echarts.graphic.LinearGradient(
+                  0,
+                  0,
+                  0,
+                  1,
+                  [
+                    {
+                      offset: 0,
+                      color: "rgba(228, 228, 126, .2)",
+                    },
+                    {
+                      offset: 1,
+                      color: "rgba(228, 228, 126, 0)",
+                    },
+                  ],
+                  false
+                ),
+                shadowColor: "rgba(0, 0, 0, 0.1)",
+              },
+            },
+            itemStyle: {
+              normal: {
+                color: "rgba(228, 228, 126, 1)",
+                borderColor: "rgba(228, 228, 126, .1)",
+                borderWidth: 12,
+              },
+            },
+            data: [
+              62.5,
+              64.4,
+              66.1,
+              64.9,
+              70.1,
+              67.2,
+              67.0,
+              63.42,
+              70.12,
+              68.94,
+              67.27,
+              66.1,
+            ],
+          },
+          {
+            name: "优化后",
+            type: "line",
+            smooth: true,
+            symbol: "circle",
+            symbolSize: 5,
+            showSymbol: false,
+            lineStyle: {
+              normal: {
+                color: "rgba(255, 128, 128, 1)",
+                width: 2,
+              },
+            },
+            areaStyle: {
+              normal: {
+                color: new this.$echarts.graphic.LinearGradient(
+                  0,
+                  0,
+                  0,
+                  1,
+                  [
+                    {
+                      offset: 0,
+                      color: "rgba(255, 128, 128,.2)",
+                    },
+                    {
+                      offset: 1,
+                      color: "rgba(255, 128, 128, 0)",
+                    },
+                  ],
+                  false
+                ),
+                shadowColor: "rgba(0, 0, 0, 0.1)",
+              },
+            },
+            itemStyle: {
+              normal: {
+                color: "rgba(255, 128, 128, 1)",
+                borderColor: "rgba(255, 128, 128, .1)",
+                borderWidth: 12,
+              },
+            },
+            data: [
+              0.5,
+              5.2,
+              6.6,
+              11.2,
+              42.1,
+              26.0,
+              20.2,
+              18.31,
+              21.59,
+              24.42,
+              34.03,
+              32.9,
+            ],
+          },
+        ],
+      };
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+      window.addEventListener("resize", function () {
+        myChart.resize();
+      });
+    },
+  },
+};
+</script>

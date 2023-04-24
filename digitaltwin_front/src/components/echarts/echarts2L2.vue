@@ -1,0 +1,243 @@
+<template>
+    <div id="2l2" style="width: 705px; height: 280px"></div>
+  </template>
+  
+  <script>
+  export default {
+    mounted() {
+      this.draw();
+    },
+    methods: {
+      draw() {
+        var myChart = this.$echarts.init(document.getElementById("2l2"));
+        var option = {
+          tooltip: {
+            trigger: "axis",
+            axisPointer: { type: "shadow" },
+            // formatter:'{c}' ,
+          },
+          grid: {
+            left: "0",
+            top: "30",
+            right: "20",
+            bottom: "5",
+            containLabel: true,
+          },
+          legend: {
+            data: ["优化前", "优化后"],
+            right: "center",
+            top: 0,
+            textStyle: {
+              color: "#000000",
+            },
+            itemWidth: 12,
+            itemHeight: 10,
+            // itemGap: 35
+          },
+          xAxis: [
+            {
+              type: "category",
+              boundaryGap: false,
+              axisLabel: {
+                rotate: 0,
+                textStyle: {
+                  color: "rgba(0,0,0,.6)",
+                  fontSize: 14,
+                },
+              },
+              axisLine: {
+                lineStyle: {
+                  color: "rgba(0,0,0,.1)",
+                },
+              },
+              data: (function () {
+                let list = [];
+                for (let i = 0; i <= 24; i++) {
+                  list.push(i + ":00");
+                }
+                return list;
+              })(),
+            },
+            {
+              axisPointer: { show: false },
+              axisLine: { show: false },
+              position: "bottom",
+              offset: 20,
+            },
+          ],
+          yAxis: [
+            {
+              type: "value",
+              axisTick: { show: false },
+              // splitNumber: 6,
+              axisLine: {
+                lineStyle: {
+                  color: "rgba(0,0,0,.1)",
+                },
+              },
+              axisLabel: {
+                formatter: "{value} kw",
+                textStyle: {
+                  color: "rgba(0,0,0,.6)",
+                  fontSize: 14,
+                },
+              },
+  
+              splitLine: {
+                lineStyle: {
+                  color: "rgba(0,0,0,.1)",
+                },
+              },
+            },
+          ],
+          series: [
+            {
+              name: "优化前",
+              type: "line",
+              smooth: true,
+              symbol: "circle",
+              symbolSize: 5,
+              showSymbol: false,
+              lineStyle: {
+                normal: {
+                  color: "rgba(64,224,205, 1)",
+                  width: 2,
+                },
+              },
+              areaStyle: {
+                normal: {
+                  color: new this.$echarts.graphic.LinearGradient(
+                    0,
+                    0,
+                    0,
+                    1,
+                    [
+                      {
+                        offset: 0,
+                        color: "rgba(64,224,205, .2)",
+                      },
+                      {
+                        offset: 1,
+                        color: "rgba(64,224,205, 0)",
+                      },
+                    ],
+                    false
+                  ),
+                  shadowColor: "rgba(0, 0, 0, 0.1)",
+                },
+              },
+              itemStyle: {
+                normal: {
+                  color: "rgba(64,224,205, 1)",
+                  borderColor: "rgba(64,224,205, .1)",
+                  borderWidth: 12,
+                },
+              },
+              data: [
+                62.5,
+                64.4,
+                66.1,
+                64.9,
+                70.1,
+                67.2,
+                67.0,
+                63.42,
+                70.12,
+                68.94,
+                67.27,
+                66.1,
+                62.5,
+                64.4,
+                66.1,
+                64.9,
+                70.1,
+                67.2,
+                67.0,
+                63.42,
+                70.12,
+                68.94,
+                67.27,
+                66.1,
+              ],
+            },
+            {
+              name: "优化后",
+              type: "line",
+              smooth: true,
+              symbol: "circle",
+              symbolSize: 5,
+              showSymbol: false,
+              lineStyle: {
+                normal: {
+                  color: "rgba(0,0,255, 1)",
+                  width: 2,
+                },
+              },
+              areaStyle: {
+                normal: {
+                  color: new this.$echarts.graphic.LinearGradient(
+                    0,
+                    0,
+                    0,
+                    1,
+                    [
+                      {
+                        offset: 0,
+                        color: "rgba(0,0,255,.2)",
+                      },
+                      {
+                        offset: 1,
+                        color: "rgba(0,0,255, 0)",
+                      },
+                    ],
+                    false
+                  ),
+                  shadowColor: "rgba(0, 0, 0, 0.1)",
+                },
+              },
+              itemStyle: {
+                normal: {
+                  color: "rgba(0,0,255, 1)",
+                  borderColor: "rgba(0,0,255, .1)",
+                  borderWidth: 12,
+                },
+              },
+              data: [
+                0.5,
+                5.2,
+                6.6,
+                11.2,
+                42.1,
+                26.0,
+                20.2,
+                18.31,
+                21.59,
+                24.42,
+                34.03,
+                32.9,
+                32.9,
+                18.31,
+                21.59,
+                24.42,
+                34.03,
+                26.0,
+                20.2,
+                18.31,
+                21.59,
+                24.42,
+                34.03,
+                32.9,
+              ],
+            },
+          ],
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+        window.addEventListener("resize", function () {
+          myChart.resize();
+        });
+      },
+    },
+  };
+  </script>
+  

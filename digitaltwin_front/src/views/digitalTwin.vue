@@ -1,6 +1,6 @@
 <template>
-    <div class="about">
-        <h1>This is a digitalTwin page</h1>
+    <div>
+        <h1>数字孪生</h1>
     </div>
 </template>
 
@@ -10,4 +10,6 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+
+</style>

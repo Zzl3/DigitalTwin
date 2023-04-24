@@ -1,5 +1,9 @@
 <template>
-  <div>
+  <div v-on:click="doClick()" id="background">
+    <div class="overlay"></div>
+    <div :style="cssVars" v-if="showModel" style="position: absolute; top: var(--pointY); left: var(--pointX); z-index: 100;"> 
+      <EchartsM5></EchartsM5>
+    </div>
     <div class="content" id="boxl1">
       <div style="text-align: left">
         <i class="el-icon-news titletext"></i>
@@ -26,14 +30,14 @@
         <i class="el-icon-news titletext"></i>
         <p class="titletext">系统整体分析</p>
       </div>
-      <EchartsR1 style="margin-top: -20px; position: absolute"></EchartsR1>
+      <EchartsR1 style="margin-top: -45px; margin-left:20px;position: absolute"></EchartsR1>
     </div>
     <div class="content" id="boxr2">
       <div style="text-align: left">
         <i class="el-icon-news titletext"></i>
         <p class="titletext">空压系统整体分析</p>
       </div>
-      <EchartsR2 style="margin-top: -15px; position: absolute"></EchartsR2>
+      <EchartsR2 style="margin-top: -15px; margin-left:20px;position: absolute"></EchartsR2>
     </div>
     <div class="content" id="boxr3">
       <div style="text-align: left">
@@ -42,7 +46,40 @@
       </div>
       <EchartsR3 style="margin-top: -20px; position: absolute"></EchartsR3>
     </div>
-    <div class="content" id="center">123</div>
+    <div class="content" id="center">
+      <div class="flex-div">
+        <div style="text-align: left">
+          <i class="el-icon-news titletext" ></i>
+          <p class="titletext" >今日耗电量</p>           
+          </div>
+          <div style="text-align: center">
+            <h1 style="text-align:center;font-size:35px;color:blue">30500元</h1>
+          </div>
+          <div>
+            <div class="tit01" style="text-align: center">空压站1</div><br>
+            <EchartsM1 style="margin-top: -20px; position: absolute"></EchartsM1>
+          </div>
+          <div>
+            <div class="tit02" style="text-align: center">空压站2</div><br>
+            <EchartsM2 style="margin-top: -20px; position: absolute"></EchartsM2>
+          </div>
+          <div>
+            <div class="tit03" style="text-align: center">空压站3</div><br>
+            <EchartsM3 style="margin-top: -20px; position: absolute"></EchartsM3>
+          </div>
+        <div> <!-- 强制性放一个div把tit03顶回来 -->
+      </div>
+      </div> 
+      <div style="justify-content: space-between">
+        <div style="text-align: left; margin-top: -40px;">
+          <i class="el-icon-news titletext" ></i>
+          <p class="titletext" >优化前后耗电量</p>           
+        </div>
+        <div>
+          <EchartsM4 style="margin-top: -20px; position:absolute"></EchartsM4>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -53,6 +90,11 @@ import EchartsL3 from "@/components/echarts/echartsL3.vue";
 import EchartsR1 from '@/components/echarts/echartsR1.vue';
 import EchartsR2 from '@/components/echarts/echartsR2.vue';  // 其实使用 element-ui实现
 import EchartsR3 from '@/components/echarts/echartsR3.vue';
+import EchartsM1 from '@/components/echarts/echartsM1.vue';
+import EchartsM2 from '@/components/echarts/echartsM2.vue';
+import EchartsM3 from '@/components/echarts/echartsM3.vue';
+import EchartsM4 from '@/components/echarts/echartsM4.vue';
+import EchartsM5 from '@/components/echarts/echartsM5.vue';
 
 export default {
   components: {
@@ -62,6 +104,41 @@ export default {
     EchartsR1,
     EchartsR2,
     EchartsR3,
+    EchartsM1,
+    EchartsM2,
+    EchartsM3,
+    EchartsM4,
+    EchartsM5,
+  },
+  methods:{
+    doClick(event) {
+      // 点击事件后，需要显示一下图表
+      this.showModel = true;
+      var e = event || window.event;
+      var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+      var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+      var x = e.pageX || e.clientX + scrollX;
+      var y = e.pageY || e.clientY + scrollY;
+      // 获得一下当前点击位置的坐标
+      this.pointX = x;
+      this.pointY = y;
+      //alert('x: ' + this.pointX + '\ny: ' + this.pointY );
+    },
+  },
+  data() {
+    return {
+      showModel : false,
+      pointX: 0,
+      pointY: 0,
+    };
+  },
+  computed: {
+    cssVars(){
+      return {
+        '--pointX' : this.pointX + 'px',
+        '--pointY' : this.pointY + 'px',
+      };
+    }
   },
 };
 </script>
@@ -117,10 +194,10 @@ export default {
 
 #center {
   width: 600px;
-  height: 220px;
+  height: 300px;
   position: absolute;
   left: 50%;
-  top: 620px;
+  top: 580px;
   transform: translate(-50%, -50%);
 }
 
@@ -129,9 +206,21 @@ export default {
   background: rgba(255, 255, 255, 0.5);
   box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
 }
-
+.overlay {
+  position: fixed;
+  top: 120;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -9999; /* 将其置于所有其他元素之下 */
+}
 .titletext {
   display: inline-block;
   margin-left: 10px;
+}
+.flex-div{
+  display: flex;
+  width: auto;
+  justify-content: space-between;/*重要*/
 }
 </style>
