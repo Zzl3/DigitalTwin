@@ -11,3 +11,7 @@ IP地址：1.15.177.18
 密码：LfSxamLkT63Ftchz
 
 调试地址：http://localhost:5000/swagger/index.html
+
+### 前端
+
+测试页面：http://localhost:8080/#/dataTest

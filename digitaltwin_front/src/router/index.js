@@ -25,6 +25,11 @@ const routes = [
     name: 'digitalTwin',
     component: () => import('../views/digitalTwin.vue')
   },
+  {
+    path: '/dataTest',
+    name: 'dataTest',
+    component: () => import('../views/dataTest.vue')
+  },
 ]
 
 const router = new VueRouter({
