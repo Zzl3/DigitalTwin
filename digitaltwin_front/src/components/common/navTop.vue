@@ -3,17 +3,13 @@
     <p style="display: inline-block; float: left; margin-left: 20px">
       Sense-Air空压系统数字孪生与智能运维平台
     </p>
-    <div
-      style="display: inline-block; float: right; margin-top: 15px; margin-right: 20px"
-    >
+    <div style="display: inline-block; float: right; margin-top: 15px; margin-right: 20px">
       <div style="display: inline-block; float: left; margin-right: 200px">
         <el-button @click="dataAna">数据分析</el-button>
         <el-button @click="waySele">策略选择</el-button>
         <el-button @click="digiTwin">数字孪生</el-button>
       </div>
-      <p
-        style="display: inline-block; float: right; margin-left: 40px; margin-top: 5px"
-        >{{ dateFormat(date) }}</p>
+      <p style="display: inline-block; float: right; margin-left: 40px; margin-top: 5px">{{ dateFormat(date) }}</p>
     </div>
   </div>
 </template>
@@ -60,5 +56,8 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+#demo {
+  height: 100px;
+}
 </style>

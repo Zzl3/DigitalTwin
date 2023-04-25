@@ -2,9 +2,9 @@
   <div id="app">
     <navTop class="nav"></navTop>
     <div class="background">
-      <img :src="imgSrc" width="100%" height="100%" alt="" />
+      <img :src="imgSrc" width="1920px" height="1080px" alt="" />
     </div>
-    <router-view class="content"/>
+    <router-view class="content" />
   </div>
 </template>
 
@@ -30,23 +30,25 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+
 .background {
-  width:100%;
-  height:98%;
-  z-index:-1;
+  width: 100%;
+  height: 98%;
+  z-index: -1;
   position: absolute;
 }
+
 .content {
-  width:100%;
-  z-index:1;
+  width: 100%;
+  z-index: 1;
   position: absolute;
   margin-top: 40px;
 }
-.nav{
+
+.nav {
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  width:100%;
-  z-index:1;
+  width: 100%;
+  z-index: 1;
   position: fixed;
-}
-</style>
+}</style>
