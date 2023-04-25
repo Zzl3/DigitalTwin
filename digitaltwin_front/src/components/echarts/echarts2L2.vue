@@ -100,7 +100,7 @@
               showSymbol: false,
               lineStyle: {
                 normal: {
-                  color: "rgba(64,224,205, 1)",
+                  color: "rgba(66, 115, 243, 1)",
                   width: 2,
                 },
               },
@@ -114,11 +114,11 @@
                     [
                       {
                         offset: 0,
-                        color: "rgba(64,224,205, .2)",
+                        color: "rgba(66, 115, 243, .2)",
                       },
                       {
                         offset: 1,
-                        color: "rgba(64,224,205, 0)",
+                        color: "rgba(66, 115, 243, 0)",
                       },
                     ],
                     false
@@ -128,8 +128,8 @@
               },
               itemStyle: {
                 normal: {
-                  color: "rgba(64,224,205, 1)",
-                  borderColor: "rgba(64,224,205, .1)",
+                  color: "rgba(66, 115, 243, 1)",
+                  borderColor: "rgba(66, 115, 243, .1)",
                   borderWidth: 12,
                 },
               },
@@ -169,7 +169,7 @@
               showSymbol: false,
               lineStyle: {
                 normal: {
-                  color: "rgba(0,0,255, 1)",
+                  color: "rgba(65, 189, 195, 1)",
                   width: 2,
                 },
               },
@@ -183,11 +183,11 @@
                     [
                       {
                         offset: 0,
-                        color: "rgba(0,0,255,.2)",
+                        color: "rgba(65, 189, 195,.2)",
                       },
                       {
                         offset: 1,
-                        color: "rgba(0,0,255, 0)",
+                        color: "rgba(65, 189, 195, 0)",
                       },
                     ],
                     false
@@ -197,8 +197,8 @@
               },
               itemStyle: {
                 normal: {
-                  color: "rgba(0,0,255, 1)",
-                  borderColor: "rgba(0,0,255, .1)",
+                  color: "rgba(65, 189, 195, 1)",
+                  borderColor: "rgba(65, 189, 195, .1)",
                   borderWidth: 12,
                 },
               },

@@ -38,7 +38,7 @@ export default {
               color: new this.$echarts.graphic.LinearGradient(0, 0, 1, 0, [
                 {
                   offset: 0,
-                  color: "#248ff7",
+                  color: "#134FFE",
                 },
                 {
                   offset: 1,

@@ -60,7 +60,7 @@ export default {
             data: [320, 302, 301, 334, 390, 330, 320, 301, 302],
             itemStyle: {
               normal: {
-                color: "#0C68C4", //改变折线点的颜色
+                color: "#1157fc", //改变折线点的颜色
               },
             },
           },
@@ -77,7 +77,7 @@ export default {
             data: [120, 132, 101, 134, 90, 230, 210, 203, 123],
             itemStyle: {
               normal: {
-                color: "#248FF7", //改变折线点的颜色
+                color: "#658df6", //改变折线点的颜色
               },
             },
           },
@@ -94,7 +94,7 @@ export default {
             data: [220, 182, 191, 234, 290, 330, 310, 241, 543],
             itemStyle: {
               normal: {
-                color: "#63A4E6", //改变折线点的颜色
+                color: "#88a2e6", //改变折线点的颜色
               },
             },
           },

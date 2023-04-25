@@ -52,7 +52,7 @@
                     y2: 0,
                     colorStops: [
                       { offset: 0, color: "#FFFFFF" },
-                      { offset: 1, color: "#0000FF" },
+                      { offset: 1, color: "#5b82e8" },
                     ],
                   },
                 },
@@ -103,7 +103,7 @@
                     y2: 0,
                     colorStops: [
                       { offset: 0, color: "#FFFFFF" },
-                      { offset: 1, color: "#00FFFF" },
+                      { offset: 1, color: "#829adb" },
                     ],
                   },
                 },
@@ -154,7 +154,7 @@
                     y2: 0,
                     colorStops: [
                       { offset: 0, color: "#FFFFFF" },
-                      { offset: 1, color: "#03A89E" },
+                      { offset: 1, color: "#195bfa" },
                     ],
                   },
                 },
