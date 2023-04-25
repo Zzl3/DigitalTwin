@@ -2,7 +2,7 @@
   <div id="app">
     <navTop class="nav"></navTop>
     <div class="background">
-      <img :src="imgSrc" width="1920px" height="1080px" alt="" />
+      <img :src="imgSrc" width="100%" height="100%" alt=""/>
     </div>
     <router-view class="content" />
   </div>

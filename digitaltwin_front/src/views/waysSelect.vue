@@ -49,8 +49,8 @@ export default {
 
 <style>
 #box2l1 {
-    width: 959px;
-    height: 438px;
+    width: 700px;
+    height: 360px;
     position: absolute;
     left: 44px;
     top: 30px;
@@ -58,30 +58,30 @@ export default {
 }
 
 #box2l2 {
-    width: 959px;
-    height: 438px;
+    width: 700px;
+    height: 360px;
     position: absolute;
     left: 44px;
-    top: 498px;
+    top: 400px;
     margin: 0 0;
 }
 
 #box2r1 {
-    width: 837px;
-    height: 438px;
+    width: 700px;
+    height: 360px;
     position: absolute;
     top: 30px;
     margin: 0 0;
-    left: 1038px;
+    right:44px;
 }
 
 #box2r2 {
-    width: 837px;
-    height: 438px;
+    width: 700px;
+    height: 360px;
     position: absolute;
     margin: 0 0;
-    left: 1038px;
-    top: 498px;
+    right:44px;
+    top: 400px;
 }
 
 .content {

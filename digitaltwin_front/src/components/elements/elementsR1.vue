@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="table-container">
-            <el-table :data="tableData" :row-style="{ height: '40px' }"
+            <el-table :data="tableData" :row-style="{ height: '20px' }"
                 :header-cell-style="{ 'text-align': 'center', 'border': 'none' }"
                 :cell-style="{ 'text-align': 'center', 'border': 'none' }">
                 <el-table-column prop="airStation" label="空压站" min-width="30%">
@@ -23,8 +23,8 @@
             </el-table>
         </div>
         <div>
-            <el-button type="primary" style="width: 382px;">一键应用优化效果</el-button>
-            <el-button type="primary" style="width: 382px">重置</el-button>
+            <el-button type="primary" style="width: 270px;">一键应用优化效果</el-button>
+            <el-button type="primary" style="width: 270px">重置</el-button>
         </div>
     </div>
 </template>
@@ -66,7 +66,10 @@ export default {
 
 <style scoped>
 /* 在scoped环境下修改element-ui组件样式需要加/deep/ */
-
+.table-container{
+    width: 700px;
+    margin-top:-25px
+}
 /*最外层透明*/
 /deep/.el-table {
     background-color: transparent !important;

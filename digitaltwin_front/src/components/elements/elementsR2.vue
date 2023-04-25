@@ -80,9 +80,11 @@ export default {
 </script>
 
 <style scoped>
-.table-container {
-    padding: 4px;
+.table-container{
+    width: 700px;
+    margin-top:-25px
 }
+
 
 /*最外层透明*/
 /deep/.el-table {
