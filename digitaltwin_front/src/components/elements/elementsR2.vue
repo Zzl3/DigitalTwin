@@ -1,24 +1,26 @@
 <template>
-    <div class="table-container">
-        <el-table :data="tableData" :row-style="{ height: '50px' }"
-            :header-cell-style="{ 'text-align': 'center', 'border': 'none' }" :cell-style="rowStyle">
-            <el-table-column prop="airStation" label="空压站" min-width="30%">
-                <!-- 用插槽的方法来改变颜色! -->
-                <template slot-scope="scope">
-                    <span :style="{ color: '#1953FC' }">{{ scope.row.airStation }}</span>
-                </template>
-            </el-table-column>
-            <el-table-column prop="time1" label="第一次补气" min-width="30%">
-                <template slot-scope="scope">
-                    <span :style="{ color: '#1953FC' }">{{ scope.row.time1 }}</span>
-                </template>
-            </el-table-column>
-            <el-table-column prop="time2" label="第二次补气" min-width="30%">
-                <template slot-scope="scope">
-                    <span :style="{ color: '#1953FC' }">{{ scope.row.time2 }}</span>
-                </template>
-            </el-table-column>
-        </el-table>
+    <div>
+        <div class="table-container">
+            <el-table :data="tableData" :row-style="{ height: '50px' }"
+                :header-cell-style="{ 'text-align': 'center', 'border': 'none' }" :cell-style="rowStyle">
+                <el-table-column prop="airStation" label="空压站" min-width="30%">
+                    <!-- 用插槽的方法来改变颜色! -->
+                    <template slot-scope="scope">
+                        <span :style="{ color: '#1953FC' }">{{ scope.row.airStation }}</span>
+                    </template>
+                </el-table-column>
+                <el-table-column prop="time1" label="第一次补气" min-width="30%">
+                    <template slot-scope="scope">
+                        <span :style="{ color: '#1953FC' }">{{ scope.row.time1 }}</span>
+                    </template>
+                </el-table-column>
+                <el-table-column prop="time2" label="第二次补气" min-width="30%">
+                    <template slot-scope="scope">
+                        <span :style="{ color: '#1953FC' }">{{ scope.row.time2 }}</span>
+                    </template>
+                </el-table-column>
+            </el-table>
+        </div>
     </div>
 </template>
 
@@ -78,6 +80,10 @@ export default {
 </script>
 
 <style scoped>
+.table-container {
+    padding: 4px;
+}
+
 /*最外层透明*/
 /deep/.el-table {
     background-color: transparent !important;
