@@ -1,15 +1,15 @@
 <template>
   <div id="demo">
-    <p style="display: inline-block; float: left; margin-left: 20px">
+    <p style="display: inline-block; float: left; margin-left: 20px;font-size: 25px;font-weight: bold;">
       Sense-Air空压系统数字孪生与智能运维平台
     </p>
     <div style="display: inline-block; float: right; margin-top: 15px; margin-right: 20px">
       <div style="display: inline-block; float: left; margin-right: 200px">
-        <el-button @click="dataAna">数据分析</el-button>
-        <el-button @click="waySele">策略选择</el-button>
-        <el-button @click="digiTwin">数字孪生</el-button>
+        <el-button @click="dataAna" style="background: #A2A2A2; color:#FFF">数据分析</el-button>
+        <el-button @click="waySele" style="background: #A2A2A2; color:#FFF">策略选择</el-button>
+        <el-button @click="digiTwin" style="background: #A2A2A2; color:#FFF">数字孪生</el-button>
       </div>
-      <p style="display: inline-block; float: right; margin-left: 40px; margin-top: 5px">{{ dateFormat(date) }}</p>
+      <p style="display: inline-block; float: right; margin-right: 40px; margin-top: 5px">{{ dateFormat(date) }}</p>
     </div>
   </div>
 </template>

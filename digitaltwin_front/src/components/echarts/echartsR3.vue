@@ -100,9 +100,9 @@ export default {
               },
             },
             data: [
-              { value: 2521, name: "空压站1", itemStyle: { color: "#0C68C4" } },
-              { value: 2154, name: "空压站2", itemStyle: { color: "#248FF7" } },
-              { value: 457, name: "空压站3", itemStyle: { color: "#63A4E6" } },
+              { value: 2521, name: "空压站1", itemStyle: { color: "#1953FC" } },
+              { value: 2154, name: "空压站2", itemStyle: { color: "#668BF6" } },
+              { value: 457, name: "空压站3", itemStyle: { color: "#4B79FF" } },
             ],
           },
         ],
@@ -118,11 +118,10 @@ export default {
           var option = chart.getOption();
           var tempdata = data[0];
           option.series[0].data[0].value = parseFloat(tempdata.total).toFixed(2);
-            for (let i = 0; i < 3; i++) {
-            var d=i+1
-            option.series[1].data[i].value = tempdata["air" + d ];
+          for (let i = 0; i < 3; i++) {
+            var d = i + 1;
+            option.series[1].data[i].value = tempdata["air" + d];
           }
-
           chart.setOption(option);
         })
         .catch((error) => {

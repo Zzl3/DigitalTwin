@@ -1,11 +1,8 @@
 <template>
   <div v-on:click="doClick()" id="background">
     <div class="overlay"></div>
-    <div
-      :style="cssVars"
-      v-if="showModel"
-      style="position: absolute; top: var(--pointY); left: var(--pointX); z-index: 100"
-    >
+    <div :style="cssVars" v-if="showModel"
+      style="position: absolute; top: var(--pointY); left: var(--pointX); z-index: 100">
       <EchartsM5></EchartsM5>
     </div>
     <div class="content" id="boxl1">
@@ -34,18 +31,14 @@
         <i class="el-icon-news titletext"></i>
         <p class="titletext">系统整体分析</p>
       </div>
-      <EchartsR1
-        style="margin-top: -45px; margin-left: 20px; position: absolute"
-      ></EchartsR1>
+      <EchartsR1 style="margin-top: -45px; margin-left: 20px; position: absolute"></EchartsR1>
     </div>
     <div class="content" id="boxr2">
       <div style="text-align: left">
         <i class="el-icon-news titletext"></i>
         <p class="titletext">空压系统整体分析</p>
       </div>
-      <EchartsR2
-        style="margin-top: -15px; margin-left: 20px; position: absolute"
-      ></EchartsR2>
+      <EchartsR2 style="margin-top: -15px; margin-left: 20px; position: absolute"></EchartsR2>
     </div>
     <div class="content" id="boxr3">
       <div style="text-align: left">
@@ -61,7 +54,7 @@
           <p class="titletext">今日耗电量</p>
         </div>
         <div style="text-align: center">
-          <h1 style="text-align: center; font-size: 35px; color: blue">{{todayvalue}}元</h1>
+          <h1 style="text-align: center; font-size: 35px; color: #1953FC">{{ todayvalue }}元</h1>
         </div>
         <div>
           <div class="tit01" style="text-align: center">空压站1</div>
@@ -141,7 +134,7 @@ export default {
       getData()
         .then((data) => {
           var tempdata = data[0];
-         this.todayvalue = (parseFloat(tempdata.feetoday)).toFixed(2);
+          this.todayvalue = (parseFloat(tempdata.feetoday)).toFixed(2);
         })
         .catch((error) => {
           console.log(error); // 处理错误
@@ -150,7 +143,7 @@ export default {
   },
   data() {
     return {
-      todayvalue:35063.24,
+      todayvalue: 35063.24,
       showModel: false,
       pointX: 0,
       pointY: 0,
@@ -230,21 +223,26 @@ export default {
   background: rgba(255, 255, 255, 0.5);
   box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
 }
+
 .overlay {
   position: fixed;
   top: 120;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -9999; /* 将其置于所有其他元素之下 */
+  z-index: -9999;
+  /* 将其置于所有其他元素之下 */
 }
+
 .titletext {
   display: inline-block;
   margin-left: 10px;
 }
+
 .flex-div {
   display: flex;
   width: auto;
-  justify-content: space-between; /*重要*/
+  justify-content: space-between;
+  /*重要*/
 }
 </style>

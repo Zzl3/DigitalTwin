@@ -36,7 +36,7 @@ export default {
         xAxis: [
           {
             type: "category",
-            data: ["2018", "2019", "2020", "2021", "2022","2023"],
+            data: ["2018", "2019", "2020", "2021", "2022", "2023"],
             axisPointer: {
               type: "shadow",
             },
@@ -69,11 +69,21 @@ export default {
                 return value;
               },
             },
+            barWidth: 20,//柱图宽度
             data: [1000, 1500, 2000, 2500, 3000],
             itemStyle: {
-              normal: {
-                color: "#0C68C4", //改变柱状图的颜色
-              },
+              color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                {
+                  offset: 0,
+                  color: "#134FFE",
+                },
+                {
+                  offset: 1,
+                  color: "rgba(22,75,247,0.1)",
+                },
+              ]),
+              barBorderRadius: [5, 5, 5, 5],//柱形图圆角设置
+
             },
           },
           {
@@ -83,7 +93,7 @@ export default {
             data: [10, 15, 20, 23, 24],
             itemStyle: {
               normal: {
-                color: "#248FF7", //改变折线图的颜色
+                color: "#1953FC", //改变折线图的颜色
               },
             },
           },
@@ -99,7 +109,7 @@ export default {
           var option = chart.getOption();
           var listData = option.series[0].data;
           console.log(listData); // 处理获取到的数据
-          for (let i = 0; i <data.length; i++) {
+          for (let i = 0; i < data.length; i++) {
             option.series[0].data[i] = data[i].fee
             option.series[1].data[i] = data[i].pressure
           }

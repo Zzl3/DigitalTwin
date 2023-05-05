@@ -61,6 +61,10 @@ export default {
             stack: "total",
             label: {
               show: true,
+              // 设置默认文字样式
+              textStyle: {
+                fontSize: 10
+              }
             },
             emphasis: {
               focus: "series",
@@ -70,6 +74,7 @@ export default {
               normal: {
                 color: "#1157fc", //改变折线点的颜色
               },
+
             },
           },
           {
@@ -78,6 +83,10 @@ export default {
             stack: "total",
             label: {
               show: true,
+              // 设置默认文字样式
+              textStyle: {
+                fontSize: 10
+              }
             },
             emphasis: {
               focus: "series",
@@ -95,6 +104,10 @@ export default {
             stack: "total",
             label: {
               show: true,
+              // 设置默认文字样式
+              textStyle: {
+                fontSize: 10
+              }
             },
             emphasis: {
               focus: "series",
@@ -119,7 +132,7 @@ export default {
           var listData = option.series[0].data;
           console.log(listData); // 处理获取到的数据
           console.log(data); // 处理获取到的数据
-          for (let i = 0; i <data.length; i++) {
+          for (let i = 0; i < data.length; i++) {
             option.series[0].data[i] = data[i].air1
             option.series[1].data[i] = data[i].air2
             option.series[2].data[i] = data[i].air3
