@@ -26,13 +26,17 @@ export default {
         xAxis: [
           {
             type: "category",
-            data: ["3.22", "3.23", "3.24", "3.25", "3.26", "3.27"],
+            data: ["4.30", "5.1", "5.2", "5.3", "5.4", "5.5"],
           },
         ],
         yAxis: [
           {
             type: "value",
+            axisLabel: {
+              formatter: "{value} KW·h",
+            },
           },
+
         ],
         series: [
           {
@@ -78,7 +82,7 @@ export default {
           var listData = option.series[0].data;
           console.log(listData); // 处理获取到的数据
           console.log(data); // 处理获取到的数据
-          for (let i = 0; i <data.length; i++) {
+          for (let i = 0; i < data.length; i++) {
             option.series[0].data[i] = data[i].air1
             option.series[1].data[i] = data[i].air2
             option.series[2].data[i] = data[i].air3

@@ -17,6 +17,10 @@ export default {
       var option = {
         xAxis: {
           type: "value",
+          // 显示单位
+          axisLabel: {
+            formatter: "{value} KPa",
+          },
         },
         yAxis: {
           type: "category",
@@ -79,7 +83,7 @@ export default {
           var listData = option.series[0].data;
           console.log(listData); // 处理获取到的数据
           var tempdata = data[15]; //用16时获得的数据
-          for (let i = 0; i <15; i++) {
+          for (let i = 0; i < 15; i++) {
             option.series[0].data[i] = tempdata['user' + i]
           }
           chart.setOption(option);
