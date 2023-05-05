@@ -21,7 +21,7 @@ export default {
           textStyle: {
             fontWeight: "normal",
             color: "#000000",
-            fontSize: "16",
+            fontSize: "10",
           },
         },
         color: "rgba(0,0,0,0.3)",
@@ -49,7 +49,7 @@ export default {
                 name: "已使用",
                 itemStyle: {
                   normal: {
-                    color: "#0000ff",
+                    color: "#1852FC",
                     label: {
                       show: false,
                     },
@@ -83,7 +83,7 @@ export default {
           var tempdata = data[0];
           option.series[0].data[0].value = (parseFloat(tempdata.air1) * 100).toFixed(1);
           option.series[0].data[1].value = (100 - parseFloat(tempdata.air1) * 100).toFixed(1);
-          option.title[0].text=(parseFloat(tempdata.air1) * 100).toFixed(1)+'%';
+          option.title[0].text = (parseFloat(tempdata.air1) * 100).toFixed(1) + '%';
           chart.setOption(option);
         })
         .catch((error) => {

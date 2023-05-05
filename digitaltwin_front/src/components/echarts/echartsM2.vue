@@ -21,7 +21,7 @@ export default {
           textStyle: {
             fontWeight: "normal",
             color: "#000000",
-            fontSize: "16",
+            fontSize: "10",
           },
         },
         color: "rgba(0,0,0,.3)",
@@ -49,7 +49,7 @@ export default {
                 name: "已使用",
                 itemStyle: {
                   normal: {
-                    color: "#0000ff",
+                    color: "#1852FC",
                     label: {
                       show: false,
                     },
