@@ -29,7 +29,7 @@
     <div class="content" id="boxr1">
       <div style="text-align: left">
         <i class="el-icon-news titletext"></i>
-        <p class="titletext">系统整体分析</p>
+        <p class="titletext">系统电费分析</p>
       </div>
       <EchartsR1 style="margin-top: -45px; margin-left: 20px; position: absolute"></EchartsR1>
     </div>
@@ -51,7 +51,7 @@
       <div class="flex-div">
         <div style="text-align: left">
           <i class="el-icon-news titletext"></i>
-          <p class="titletext">今日耗电量</p>
+          <p class="titletext">今日电费</p>
         </div>
         <div style="text-align: center">
           <h1 style="text-align: center; font-size: 35px; color: #1953FC">{{ todayvalue }}元</h1>

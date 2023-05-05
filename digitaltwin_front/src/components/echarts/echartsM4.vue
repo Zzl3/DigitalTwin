@@ -41,6 +41,7 @@ export default {
             type: "category",
             boundaryGap: false,
             axisLabel: {
+              formatter: "{value} min", // 添加横坐标单位
               rotate: 0,
               textStyle: {
                 color: "rgba(0,0,0,.6)",
@@ -92,7 +93,7 @@ export default {
               },
             },
             axisLabel: {
-              formatter: "{value} kw",
+              formatter: "{value} KW·h",
               textStyle: {
                 color: "rgba(0,0,0,.6)",
                 fontSize: 14,

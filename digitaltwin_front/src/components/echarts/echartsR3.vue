@@ -79,7 +79,7 @@ export default {
               length: 30,
             },
             label: {
-              formatter: "  {b|{b}}  \n  {c|{c}}  ",
+              formatter: "  {b|{b}}  \n  {c|{c} KW·h}  ",
               backgroundColor: "#F6F8FC",
               borderColor: "#8C8D8E",
               borderWidth: 1,

@@ -48,7 +48,7 @@ export default {
             name: "电费",
             interval: 5000,
             axisLabel: {
-              formatter: "{value}",
+              formatter: "{value} 元",
             },
           },
           {
@@ -56,7 +56,7 @@ export default {
             name: "日平均压力",
             interval: 500,
             axisLabel: {
-              formatter: "{value}",
+              formatter: "{value} KPa",
             },
           },
         ],

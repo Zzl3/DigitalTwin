@@ -46,6 +46,7 @@ export default {
                 color: "rgba(0,0,0,.6)",
                 fontSize: 14,
               },
+              formatter: "{value} min", // 添加横坐标单位
             },
             axisLine: {
               lineStyle: {
@@ -78,12 +79,13 @@ export default {
               },
             },
             axisLabel: {
-              formatter: "{value} kw",
+              formatter: "{value} KW·h",
               textStyle: {
                 color: "rgba(0,0,0,.6)",
                 fontSize: 14,
               },
             },
+
 
             splitLine: {
               lineStyle: {
