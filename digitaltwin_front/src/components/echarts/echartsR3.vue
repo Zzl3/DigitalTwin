@@ -117,7 +117,7 @@ export default {
           var chart = this.$echarts.getInstanceByDom(document.getElementById("r3"));
           var option = chart.getOption();
           var tempdata = data[0];
-          option.series[0].data[0].value = parseInt(tempdata.total).toFixed(2);
+          option.series[0].data[0].value = parseFloat(tempdata.total).toFixed(2);
             for (let i = 0; i < 3; i++) {
             var d=i+1
             option.series[1].data[i].value = tempdata["air" + d ];
