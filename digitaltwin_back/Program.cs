@@ -37,6 +37,18 @@ builder.Services.AddTransient<IAuthService, AuthService>();
 builder.Services.AddTransient<IFileService, FileService>();
 
 builder.Services.AddTransient<DataManageService>();
+builder.Services.AddTransient<ConsumptionService>();
+builder.Services.AddTransient<OnandoffService>();
+builder.Services.AddTransient<UserusingService>();
+builder.Services.AddTransient<UserloadingService>();
+builder.Services.AddTransient<RecentconsumptionService>();
+builder.Services.AddTransient<AirelectricityService>();
+builder.Services.AddTransient<AirstateService>();
+builder.Services.AddTransient<RunstrategyService>();
+builder.Services.AddTransient<SystemairService>();
+builder.Services.AddTransient<SystemelectricityService>();
+builder.Services.AddTransient<ElectricityfeeService>();
+
 
 // ����JWT��tokenУ��ѡ��
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

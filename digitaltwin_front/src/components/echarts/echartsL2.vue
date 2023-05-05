@@ -3,9 +3,11 @@
 </template>
 
 <script>
+import { getData } from "@/api/userusing";
 export default {
   mounted() {
     this.draw();
+    this.getDataL2();
   },
   methods: {
     draw() {
@@ -41,6 +43,12 @@ export default {
             "用户7",
             "用户8",
             "用户9",
+            "用户10",
+            "用户11",
+            "用户12",
+            "用户13",
+            "用户14",
+            "用户15",
           ],
         },
         yAxis: {
@@ -102,6 +110,25 @@ export default {
       };
       // 使用刚指定的配置项和数据显示图表。
       myChart.setOption(option);
+    },
+    getDataL2() {
+      getData()
+        .then((data) => {
+          var chart = this.$echarts.getInstanceByDom(document.getElementById("l2"));
+          var option = chart.getOption();
+          var listData = option.series[0].data;
+          console.log(listData); // 处理获取到的数据
+          console.log(data); // 处理获取到的数据
+          for (let i = 0; i <data.length; i++) {
+            option.series[0].data[i] = data[i].air1
+            option.series[1].data[i] = data[i].air2
+            option.series[2].data[i] = data[i].air3
+          }
+          chart.setOption(option);
+        })
+        .catch((error) => {
+          console.log(error); // 处理错误
+        });
     },
   },
 };

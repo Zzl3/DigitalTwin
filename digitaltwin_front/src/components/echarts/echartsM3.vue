@@ -3,9 +3,11 @@
 </template>
 
 <script>
+import { getData } from "@/api/electricityfee";
 export default {
     mounted() {
         this.draw();
+        this.getDataM3();
     },
     methods:{
         draw(){
@@ -67,7 +69,26 @@ export default {
             window.addEventListener("resize",function(){
                 myChart.resize();
             });
-        }
+        },
+        getDataM3() {
+      getData()
+        .then((data) => {
+          var chart = this.$echarts.getInstanceByDom(document.getElementById("m3"));
+          var option = chart.getOption();
+          console.log(data); // 处理获取到的数据
+          var tempdata = data[0];
+          option.series[0].data[0].value = (parseFloat(tempdata.air3) * 100).toFixed(1);
+          option.series[0].data[1].value = (
+            100 -
+            parseFloat(tempdata.air3) * 100
+          ).toFixed(1);
+          option.title[0].text = (parseFloat(tempdata.air3) * 100).toFixed(1) + "%";
+          chart.setOption(option);
+        })
+        .catch((error) => {
+          console.log(error); // 处理错误
+        });
+    },
     }
 }
 </script>

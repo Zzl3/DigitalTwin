@@ -3,9 +3,11 @@
 </template>
 
 <script>
+import { getConsumption } from "@/api/consumption";
 export default {
   mounted() {
     this.draw();
+    this.getDataM4();
   },
   methods: {
     draw() {
@@ -34,7 +36,6 @@ export default {
           itemHeight: 10,
           // itemGap: 35
         },
-
         xAxis: [
           {
             type: "category",
@@ -51,20 +52,27 @@ export default {
                 color: "rgba(0,0,0,.1)",
               },
             },
-            data: [
-              "00:00",
-              "02:00",
-              "04:00",
-              "06:00",
-              "08:00",
-              "10:00",
-              "12:00",
-              "14:00",
-              "16:00",
-              "18:00",
-              "20:00",
-              "22:00",
-            ],
+            data: (function () {
+              let list = [];
+              for (let i = 0; i <= 1044; i++) {
+                list.push(i);
+              }
+              return list;
+            })(),
+            // data: [
+            //   "00:00",
+            //   "02:00",
+            //   "04:00",
+            //   "06:00",
+            //   "08:00",
+            //   "10:00",
+            //   "12:00",
+            //   "14:00",
+            //   "16:00",
+            //   "18:00",
+            //   "20:00",
+            //   "22:00",
+            // ],
           },
           {
             axisPointer: { show: false },
@@ -220,6 +228,26 @@ export default {
       window.addEventListener("resize", function () {
         myChart.resize();
       });
+    },
+
+    getDataM4() {
+      getConsumption()
+        .then((data) => {
+          var chart = this.$echarts.getInstanceByDom(document.getElementById("m4"));
+          var option = chart.getOption();
+          var listData = option.series[0].data;
+          console.log(listData); // 处理获取到的数据
+          for (let i = 0; i < data.length; i++) {
+            // console.log(data[i].before);
+            // console.log(data[i].after);
+            option.series[0].data[i] = data[i].before;
+            option.series[1].data[i] = data[i].after;
+          }
+          chart.setOption(option);
+        })
+        .catch((error) => {
+          console.log(error); // 处理错误
+        });
     },
   },
 };
