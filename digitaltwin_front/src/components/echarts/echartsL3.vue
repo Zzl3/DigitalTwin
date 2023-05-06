@@ -8,6 +8,7 @@ export default {
   mounted() {
     this.draw();
     this.getDataL3();
+    this.setDate();
   },
   methods: {
     draw() {
@@ -31,12 +32,13 @@ export default {
         ],
         yAxis: [
           {
+            name: "KW·h",
             type: "value",
             axisLabel: {
-              formatter: "{value} KW·h",
+              formatter: "{value}",
+              fontSize: 8,
             },
           },
-
         ],
         series: [
           {
@@ -91,8 +93,25 @@ export default {
         })
         .catch((error) => {
           console.log(error); // 处理错误
-        });
+        })
     },
+    setDate() {
+      var chart = this.$echarts.getInstanceByDom(document.getElementById("l3"));
+      var option = chart.getOption();
+      // var listDate = option.xAxis[0].data;
+      var listDate = [];
+      var date = new Date();
+      var month = date.getMonth() + 1;
+      for (let i = 4; i >= 0; i--) {
+        var day = date.getDate();
+        day = day - i;
+        var time = month + "." + day;
+        listDate.push(time);
+      }
+      listDate.push(time);
+      option.xAxis[0].data = listDate;
+      chart.setOption(option);
+    }
   },
 };
 </script>

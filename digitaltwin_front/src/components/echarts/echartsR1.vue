@@ -1,5 +1,5 @@
 <template>
-  <div id="r1" style="width: 340px; height: 240px"></div>
+  <div id="r1" style="width: 400px; height: 240px"></div>
 </template>
 
 <script>
@@ -45,18 +45,23 @@ export default {
         yAxis: [
           {
             type: "value",
-            name: "电费",
+            name: "电费/元",
             interval: 5000,
             axisLabel: {
-              formatter: "{value} 元",
+              formatter: "{value}",
+              fontSize: 10,
             },
           },
           {
             type: "value",
-            name: "日平均压力",
+            name: "日平均压力/KPa",
+            nameTextStyle: {
+              fontSize: 10,
+            },
             interval: 500,
             axisLabel: {
-              formatter: "{value} KPa",
+              formatter: "{value}",
+              fontSize: 10,
             },
           },
         ],

@@ -1,12 +1,8 @@
 <template>
   <div>
     <div class="table-container">
-      <el-table
-        :data="tableData"
-        :row-style="{ height: '50px' }"
-        :header-cell-style="{ 'text-align': 'center', border: 'none' }"
-        :cell-style="rowStyle"
-      >
+      <el-table :data="tableData" :row-style="{ height: '50px' }"
+        :header-cell-style="{ 'text-align': 'center', border: 'none' }" :cell-style="rowStyle">
         <el-table-column prop="airStation" label="空压站" min-width="30%">
           <!-- 用插槽的方法来改变颜色! -->
           <template slot-scope="scope">
@@ -24,6 +20,11 @@
           </template>
         </el-table-column>
       </el-table>
+      <div class="threeButton">
+        <el-button type="primary" style="width: 200px">一键应用优化效果</el-button>
+        <el-button type="primary" style="width: 200px">应用</el-button>
+        <el-button type="primary" style="width: 200px">重置</el-button>
+      </div>
     </div>
   </div>
 </template>
@@ -56,8 +57,8 @@ export default {
         .then((data) => {
           console.log(data);
           for (let i = 0; i < data.length; i++) {
-            this.tableData[i].time1 = data[i].pressure1+"KPa";
-            this.tableData[i].time2 = data[i].pressure2+"KPa";
+            this.tableData[i].time1 = data[i].pressure1 + "KPa";
+            this.tableData[i].time2 = data[i].pressure2 + "KPa";
           }
         })
         .catch((error) => {
@@ -126,5 +127,9 @@ export default {
 /deep/.el-table td {
   background-color: transparent !important;
   font-weight: 10000;
+}
+
+.threeButton {
+  margin-top: 40px;
 }
 </style>

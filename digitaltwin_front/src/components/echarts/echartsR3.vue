@@ -58,7 +58,7 @@ export default {
                   borderColor: "#FFF",
                   align: "center",
                   verticalAlign: "middle",
-                  fontSize: 20,
+                  fontSize: 15,
                   lineHeight: 0,
                   textDecoration: "underline",
                 },

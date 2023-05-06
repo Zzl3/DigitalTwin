@@ -10,14 +10,14 @@
         <i class="el-icon-news titletext"></i>
         <p class="titletext">用户负荷情况</p>
       </div>
-      <EchartsL1 style="margin-top: -70px; position: absolute"></EchartsL1>
+      <EchartsL1 style="margin-left:10px; margin-top: -70px; position: absolute"></EchartsL1>
     </div>
     <div class="content" id="boxl2">
       <div style="text-align: left">
         <i class="el-icon-news titletext"></i>
         <p class="titletext">空压站使用情况</p>
       </div>
-      <EchartsL2 style="margin-top: -50px; position: absolute"></EchartsL2>
+      <EchartsL2 style="margin-left:10px; margin-top: -50px; position: absolute"></EchartsL2>
     </div>
     <div class="content" id="boxl3">
       <div style="text-align: left">
@@ -79,7 +79,7 @@
           <p class="titletext">优化前后耗电量</p>
         </div>
         <div>
-          <EchartsM4 style="margin-top: -20px; position: absolute"></EchartsM4>
+          <EchartsM4 style="margin-left: 20px; margin-top: -20px; position: absolute"></EchartsM4>
         </div>
       </div>
     </div>
@@ -162,7 +162,7 @@ export default {
 
 <style scoped>
 #boxl1 {
-  width: 400px;
+  width: 440px;
   height: 220px;
   position: absolute;
   left: 0;
@@ -170,7 +170,7 @@ export default {
 }
 
 #boxl2 {
-  width: 400px;
+  width: 440px;
   height: 220px;
   position: absolute;
   left: 0;
@@ -178,7 +178,7 @@ export default {
 }
 
 #boxl3 {
-  width: 400px;
+  width: 440px;
   height: 220px;
   position: absolute;
   left: 0;
@@ -186,7 +186,7 @@ export default {
 }
 
 #boxr1 {
-  width: 400px;
+  width: 440px;
   height: 220px;
   position: absolute;
   right: 0;
@@ -194,7 +194,7 @@ export default {
 }
 
 #boxr2 {
-  width: 400px;
+  width: 440px;
   height: 220px;
   position: absolute;
   right: 0;
@@ -202,7 +202,7 @@ export default {
 }
 
 #boxr3 {
-  width: 400px;
+  width: 440px;
   height: 220px;
   position: absolute;
   right: 0;
@@ -210,7 +210,7 @@ export default {
 }
 
 #center {
-  width: 600px;
+  width: 640px;
   height: 300px;
   position: absolute;
   left: 50%;

@@ -33,7 +33,7 @@ export default {
           boundaryGap: false,
           data: (function () {
             let list = [];
-            for (let i = 0; i <= 1044; i++) {
+            for (let i = 0; i <= 1440; i++) {
               list.push(i);
             }
             return list;
