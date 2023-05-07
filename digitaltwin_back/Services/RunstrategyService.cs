@@ -31,7 +31,12 @@ namespace auth.Services
             //r1Dto和r2Dto是前端传过来的数据
             //S1,S2,S3分别代表三个机器
             //r1Dto的time代表time，r2Dto的time代表pressure
-            //传过来的就是r1Dto和r2Dto，返回的是runstrategys
+            //返回的是runstrategys
+
+            //总而言之，需要改变的值共12个，如下
+            //r1Dto.S1time1，r1Dto.S1time2，r2Dto.S1time1，r2Dto.S1time2
+            //r1Dto.S2time1，r1Dto.S2time2，r2Dto.S2time1，r2Dto.S2time2
+            //r1Dto.S3time1，r1Dto.S3time2，r2Dto.S3time1，r2Dto.S3time2
 
             Runstrategy runstrategy1 = new Runstrategy();
             runstrategy1.air = "Comp1"; //这个变量不能改变
