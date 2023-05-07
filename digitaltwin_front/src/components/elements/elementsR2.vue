@@ -9,14 +9,16 @@
             <span :style="{ color: '#1953FC' }">{{ scope.row.airStation }}</span>
           </template>
         </el-table-column>
-        <el-table-column prop="time1" label="第一次补气" min-width="30%">
+        <el-table-column prop="time1" label="第一次补气压力" min-width="30%">
           <template slot-scope="scope">
-            <span :style="{ color: '#1953FC' }">{{ scope.row.time1 }}</span>
+            <input type="text" v-model="scope.row.time1" :style="{ color: '#1953FC' }">
+            <span style="margin-left:10px; color: #1953FC;">KPa</span>
           </template>
         </el-table-column>
-        <el-table-column prop="time2" label="第二次补气" min-width="30%">
+        <el-table-column prop="time2" label="第二次补气压力" min-width="30%">
           <template slot-scope="scope">
-            <span :style="{ color: '#1953FC' }">{{ scope.row.time2 }}</span>
+            <input type="text" v-model="scope.row.time2" :style="{ color: '#1953FC' }"><span
+              style="margin-left:10px; color: #1953FC;">KPa</span>
           </template>
         </el-table-column>
       </el-table>
@@ -57,8 +59,8 @@ export default {
         .then((data) => {
           console.log(data);
           for (let i = 0; i < data.length; i++) {
-            this.tableData[i].time1 = data[i].pressure1 + "KPa";
-            this.tableData[i].time2 = data[i].pressure2 + "KPa";
+            this.tableData[i].time1 = data[i].pressure1;
+            this.tableData[i].time2 = data[i].pressure2;
           }
         })
         .catch((error) => {
@@ -92,8 +94,9 @@ export default {
 
 <style scoped>
 .table-container {
-  width: 700px;
+  width: 680px;
   margin-top: -25px;
+  padding: 10px;
 }
 
 /*最外层透明*/

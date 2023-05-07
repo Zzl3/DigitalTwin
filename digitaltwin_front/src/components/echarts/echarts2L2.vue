@@ -46,7 +46,7 @@ export default {
                 color: "rgba(0,0,0,.6)",
                 fontSize: 14,
               },
-              formatter: "{value} min", // 添加横坐标单位
+              formatter: "{value} h", // 添加横坐标单位
             },
             axisLine: {
               lineStyle: {
@@ -56,7 +56,7 @@ export default {
             data: (function () {
               let list = [];
               for (let i = 0; i <= 1440; i++) {
-                list.push(i);
+                list.push(Math.round(i / 60));
               }
               return list;
             })(),

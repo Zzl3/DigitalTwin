@@ -31,16 +31,27 @@ export default {
         xAxis: {
           type: "category",
           boundaryGap: false,
+          axisLabel: {
+            formatter: "{value} h", // 添加横坐标单位
+          },
           data: (function () {
             let list = [];
             for (let i = 0; i <= 1440; i++) {
-              list.push(i);
+              list.push(Math.round(i / 60));
             }
             return list;
           })(),
+
         },
         yAxis: {
           type: "value",
+          // axisLabel: {
+          //   formatter: function (value) {
+          //     // 只显示 0 和 1
+          //     if (value === 0 || value === 1)
+          //       return value;
+          //   }
+          // }
         },
         series: [
           {

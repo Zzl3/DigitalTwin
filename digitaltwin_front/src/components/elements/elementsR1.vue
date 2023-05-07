@@ -12,12 +12,14 @@
         </el-table-column>
         <el-table-column prop="time1" label="运行时间段1" min-width="40%">
           <template slot-scope="scope">
-            <span :style="{ color: '#1953FC' }">{{ scope.row.time1 }}</span>
+            <input type="text" v-model="scope.row.time1" :style="{ color: '#1953FC' }">
+            <span style="margin-left:10px; color: #1953FC;">h</span>
           </template>
         </el-table-column>
         <el-table-column prop="time2" label="运行时间段2" min-width="30%">
           <template slot-scope="scope">
-            <span :style="{ color: '#1953FC' }">{{ scope.row.time2 }}</span>
+            <input type="text" v-model="scope.row.time2" :style="{ color: '#1953FC' }">
+            <span style="margin-left:10px; color: #1953FC;">h</span>
           </template>
         </el-table-column>
       </el-table>

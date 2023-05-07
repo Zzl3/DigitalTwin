@@ -41,7 +41,7 @@ export default {
             type: "category",
             boundaryGap: false,
             axisLabel: {
-              formatter: "{value} min", // 添加横坐标单位
+              formatter: "{value} h", // 添加横坐标单位
               rotate: 0,
               textStyle: {
                 color: "rgba(0,0,0,.6)",
@@ -56,7 +56,8 @@ export default {
             data: (function () {
               let list = [];
               for (let i = 0; i <= 1440; i++) {
-                list.push(i);
+                // i 是多少分钟，转成多少小时
+                list.push(Math.round(i / 60));
               }
               return list;
             })(),
@@ -117,7 +118,7 @@ export default {
             showSymbol: false,
             lineStyle: {
               normal: {
-                color: "rgba(228, 228, 126, 1)",
+                color: "rgba(66, 115, 243, 1)",
                 width: 2,
               },
             },
@@ -131,7 +132,7 @@ export default {
                   [
                     {
                       offset: 0,
-                      color: "rgba(228, 228, 126, .2)",
+                      color: "rgba(66, 115, 243, .5)",
                     },
                     {
                       offset: 1,
@@ -145,8 +146,8 @@ export default {
             },
             itemStyle: {
               normal: {
-                color: "rgba(228, 228, 126, 1)",
-                borderColor: "rgba(228, 228, 126, .1)",
+                color: "rgba(66, 115, 243, 1)",
+                borderColor: "rgba(66, 115, 243, .1)",
                 borderWidth: 12,
               },
             },
@@ -174,7 +175,7 @@ export default {
             showSymbol: false,
             lineStyle: {
               normal: {
-                color: "rgba(255, 128, 128, 1)",
+                color: "rgba(65, 189, 195, 1)",
                 width: 2,
               },
             },
@@ -188,7 +189,7 @@ export default {
                   [
                     {
                       offset: 0,
-                      color: "rgba(255, 128, 128,.2)",
+                      color: "rgba(65, 189, 195, .5)",
                     },
                     {
                       offset: 1,
@@ -202,8 +203,8 @@ export default {
             },
             itemStyle: {
               normal: {
-                color: "rgba(255, 128, 128, 1)",
-                borderColor: "rgba(255, 128, 128, .1)",
+                color: "rgba(65, 189, 195, 1)",
+                borderColor: "rgba(65, 189, 195, .1)",
                 borderWidth: 12,
               },
             },

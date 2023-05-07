@@ -54,7 +54,7 @@
           <p class="titletext">今日电费</p>
         </div>
         <div style="text-align: center">
-          <h1 style="text-align: center; font-size: 35px; color: #1953FC">{{ todayvalue }}元</h1>
+          <h1 style="text-align: center; font-size: 35px; color: #134FFE">{{ todayvalue }}元</h1>
         </div>
         <div>
           <div class="tit01" style="text-align: center">空压站1</div>

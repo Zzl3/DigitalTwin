@@ -8,7 +8,7 @@
       </el-table-column>
       <el-table-column prop="prop3" label="电费" width="70" align="center">
       </el-table-column>
-      <el-table-column prop="prop4" label="压力" width="70" align="center">
+      <el-table-column prop="prop4" label="平均压力" width="70" align="center">
       </el-table-column>
       <el-table-column prop="prop5" label="用户数" width="85" align="center">
       </el-table-column>

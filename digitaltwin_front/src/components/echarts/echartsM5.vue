@@ -1,21 +1,11 @@
 <template>
   <div class="table-wrapper">
     <el-select v-model="selectedValue" placeholder="请选择">
-      <el-option
-        v-for="option in options"
-        :key="option.value"
-        :label="option.label"
-        :value="option.value"
-      ></el-option>
+      <el-option v-for="option in options" :key="option.value" :label="option.label" :value="option.value"></el-option>
     </el-select>
-    <el-table
-      :data="tableData"
-      style="font-size: 14px; font-weight: bold; color: #000000"
-      :row-style="{ height: '40px' }"
-      :cell-style="{ padding: '4px' }"
-      :header-cell-style="{ background: '#eef1f6', color: '#606266' }"
-      :show-header="false"
-    >
+    <el-table :data="tableData" style="font-size: 14px; font-weight: bold; color: #000000" :row-style="{ height: '40px' }"
+      :cell-style="{ padding: '4px' }" :header-cell-style="{ background: '#eef1f6', color: '#606266' }"
+      :show-header="false">
       <el-table-column prop="prop1" width="195" align="left"> </el-table-column>
       <el-table-column prop="prop2" width="195" align="right"> </el-table-column>
     </el-table>
@@ -44,7 +34,7 @@ export default {
         },
         {
           prop1: "  负荷量",
-          prop2: "999  ",
+          prop2: "811.584  ",
         },
         {
           prop1: "  平均使用时长",
@@ -56,21 +46,21 @@ export default {
   watch: {
     selectedValue(value) {
       if (value === "option1") {
-          this.tableData[0].prop2 = this.alldata[0].state;
-          this.tableData[1].prop2 = this.alldata[0].stress;
-          this.tableData[2].prop2 = this.alldata[0].timepre;
+        this.tableData[0].prop2 = this.alldata[0].state;
+        this.tableData[1].prop2 = this.alldata[0].stress;
+        this.tableData[2].prop2 = this.alldata[0].timepre;
       } else if (value === "option2") {
         this.tableData[0].prop2 = this.alldata[1].state;
-          this.tableData[1].prop2 = this.alldata[1].stress;
-          this.tableData[2].prop2 = this.alldata[1].timepre;
+        this.tableData[1].prop2 = this.alldata[1].stress;
+        this.tableData[2].prop2 = this.alldata[1].timepre;
       } else if (value === "option3") {
         this.tableData[0].prop2 = this.alldata[2].state;
-          this.tableData[1].prop2 = this.alldata[2].stress;
-          this.tableData[2].prop2 = this.alldata[2].timepre;
+        this.tableData[1].prop2 = this.alldata[2].stress;
+        this.tableData[2].prop2 = this.alldata[2].timepre;
       } else {
         this.tableData[0].prop2 = this.alldata[0].status;
-          this.tableData[1].prop2 = this.alldata[0].stress;
-          this.tableData[2].prop2 = this.alldata[0].timepre;
+        this.tableData[1].prop2 = this.alldata[0].stress;
+        this.tableData[2].prop2 = this.alldata[0].timepre;
       }
     },
   },
