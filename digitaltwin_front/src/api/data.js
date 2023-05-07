@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 
-//const baseURL = 'http://localhost:5000';
-const baseURL = 'http://124.223.160.61:5000'; //部署到服务器上面
+const baseURL = 'http://localhost:5000';
+//const baseURL = 'http://124.223.160.61:5000'; //部署到服务器上面
 
 const api = axios.create({
   baseURL: baseURL,

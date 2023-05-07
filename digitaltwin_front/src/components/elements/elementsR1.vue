@@ -1,9 +1,12 @@
 <template>
   <div>
     <div class="table-container">
-      <el-table :data="tableData" :row-style="{ height: '20px' }"
+      <el-table
+        :data="tableData"
+        :row-style="{ height: '20px' }"
         :header-cell-style="{ 'text-align': 'center', border: 'none' }"
-        :cell-style="{ 'text-align': 'center', border: 'none' }">
+        :cell-style="{ 'text-align': 'center', border: 'none' }"
+      >
         <el-table-column prop="airStation" label="空压站" min-width="30%">
           <!-- 用插槽的方法来改变颜色! -->
           <template slot-scope="scope">
@@ -12,25 +15,30 @@
         </el-table-column>
         <el-table-column prop="time1" label="运行时间段1" min-width="40%">
           <template slot-scope="scope">
-            <input type="text" v-model="scope.row.time1" :style="{ color: '#1953FC' }">
-            <span style="margin-left:10px; color: #1953FC;">h</span>
+            <input type="text" v-model="scope.row.time1" :style="{ color: '#1953FC' }" />
+            <span style="margin-left: 10px; color: #1953fc">h</span>
           </template>
         </el-table-column>
         <el-table-column prop="time2" label="运行时间段2" min-width="30%">
           <template slot-scope="scope">
-            <input type="text" v-model="scope.row.time2" :style="{ color: '#1953FC' }">
-            <span style="margin-left:10px; color: #1953FC;">h</span>
+            <input type="text" v-model="scope.row.time2" :style="{ color: '#1953FC' }" />
+            <span style="margin-left: 10px; color: #1953fc">h</span>
           </template>
         </el-table-column>
       </el-table>
     </div>
-
   </div>
 </template>
 
 <script>
 import { getData } from "@/api/runstrategy";
 export default {
+  props: {
+    childData: {
+      type: Object,
+      required: true,
+    },
+  },
   mounted() {
     this.getData2R1();
   },
@@ -55,6 +63,15 @@ export default {
       ],
     };
   },
+  watch: {
+    tableData: {
+      deep: true, // 监听对象变化
+      handler(newVal, oldVal) {
+        this.updateR1Data(); //触发函数
+        console.log("tableData changed: ", newVal, oldVal);
+      },
+    },
+  },
   methods: {
     getData2R1() {
       getData()
@@ -68,6 +85,17 @@ export default {
         .catch((error) => {
           console.log(error); // 处理错误
         });
+    },
+    updateR1Data() {
+      const newChildData = {
+        S1time1: this.tableData[0].time1,
+        S1time2: this.tableData[0].time2,
+        S2time1: this.tableData[1].time1,
+        S2time2: this.tableData[1].time2,
+        S3time1: this.tableData[2].time1,
+        S3time2: this.tableData[2].time2,
+      };
+      this.$emit("R1DataChanged", newChildData);
     },
   },
 };

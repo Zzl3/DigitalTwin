@@ -22,11 +22,6 @@
           </template>
         </el-table-column>
       </el-table>
-      <div class="threeButton">
-        <el-button type="primary" style="width: 200px">一键应用优化效果</el-button>
-        <el-button type="primary" style="width: 200px">应用</el-button>
-        <el-button type="primary" style="width: 200px">重置</el-button>
-      </div>
     </div>
   </div>
 </template>
@@ -34,6 +29,12 @@
 <script>
 import { getData } from "@/api/runstrategy";
 export default {
+  props: {
+    childData: {
+      type: Object,
+      required: true,
+    },
+  },
   mounted() {
     this.getData2R2();
   },
@@ -67,6 +68,17 @@ export default {
           console.log(error); // 处理错误
         });
     },
+    updateR2Data() {
+      const newChildData = {
+        S1time1: this.tableData[0].time1,
+        S1time2: this.tableData[0].time2,
+        S2time1: this.tableData[1].time1,
+        S2time2: this.tableData[1].time2,
+        S3time1: this.tableData[2].time1,
+        S3time2: this.tableData[2].time2,
+      };
+      this.$emit("R2DataChanged", newChildData);
+    },
   },
   data() {
     return {
@@ -88,6 +100,15 @@ export default {
         }
       ],
     };
+  },
+  watch: {
+    tableData: {
+      deep: true, // 监听对象变化
+      handler(newVal, oldVal) {
+        this.updateR2Data(); //触发函数
+        console.log("tableData changed: ", newVal, oldVal);
+      },
+    },
   },
 };
 </script>
@@ -132,7 +153,5 @@ export default {
   font-weight: 10000;
 }
 
-.threeButton {
-  margin-top: 40px;
-}
+
 </style>

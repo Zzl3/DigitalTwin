@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/lei/Desktop/DigitalTwin/digitaltwin_back/auth.csproj": {}
+    "/Users/zhouzilei/Documents/GitHub/DigitalTwin/digitaltwin_back/auth.csproj": {}
   },
   "projects": {
-    "/Users/lei/Desktop/DigitalTwin/digitaltwin_back/auth.csproj": {
+    "/Users/zhouzilei/Documents/GitHub/DigitalTwin/digitaltwin_back/auth.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/lei/Desktop/DigitalTwin/digitaltwin_back/auth.csproj",
+        "projectUniqueName": "/Users/zhouzilei/Documents/GitHub/DigitalTwin/digitaltwin_back/auth.csproj",
         "projectName": "auth",
-        "projectPath": "/Users/lei/Desktop/DigitalTwin/digitaltwin_back/auth.csproj",
-        "packagesPath": "/Users/lei/.nuget/packages/",
-        "outputPath": "/Users/lei/Desktop/DigitalTwin/digitaltwin_back/obj/",
+        "projectPath": "/Users/zhouzilei/Documents/GitHub/DigitalTwin/digitaltwin_back/auth.csproj",
+        "packagesPath": "/Users/zhouzilei/.nuget/packages/",
+        "outputPath": "/Users/zhouzilei/Documents/GitHub/DigitalTwin/digitaltwin_back/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/lei/.nuget/NuGet/NuGet.Config"
+          "/Users/zhouzilei/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -94,7 +94,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.102/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.202/RuntimeIdentifierGraph.json"
         }
       }
     }

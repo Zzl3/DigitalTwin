@@ -30,6 +30,34 @@ namespace auth.Controllers
             });
         }
 
+        [HttpPost("upgradeData")]
+        public IActionResult upgradeData(R12Dto r12Dto)
+        {
+            R1Dto r1Dto = new R1Dto();
+            r1Dto.S1time1=r12Dto.S1time1;
+            r1Dto.S1time2=r12Dto.S1time2;
+            r1Dto.S2time1=r12Dto.S2time1;
+            r1Dto.S2time2=r12Dto.S2time2;
+            r1Dto.S3time1=r12Dto.S3time1;
+            r1Dto.S3time2=r12Dto.S3time2;
+            R2Dto r2Dto = new R2Dto();
+            r2Dto.S1time1=r12Dto.S1pressure1;
+            r2Dto.S1time2=r12Dto.S1pressure2;
+            r2Dto.S2time1=r12Dto.S2pressure1;
+            r2Dto.S2time2=r12Dto.S2pressure2;
+            r2Dto.S3time1=r12Dto.S3pressure1;
+            r2Dto.S3time2=r12Dto.S3pressure2;
+
+            var code = 200;
+            var msg = "success";
+            return Ok(new
+            {
+                code,
+                msg,
+                data=_RunstrategyService.upgradeData(r1Dto,r2Dto).Result
+            });
+        }
+
         [HttpPost("deleteData")]
         public async Task<IActionResult> deleteData(string min)
         {
