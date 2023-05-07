@@ -1,8 +1,12 @@
 <template>
   <div>
     <div class="table-container">
-      <el-table :data="tableData" :row-style="{ height: '50px' }"
-        :header-cell-style="{ 'text-align': 'center', border: 'none' }" :cell-style="rowStyle">
+      <el-table
+        :data="tableData"
+        :row-style="{ height: '50px' }"
+        :header-cell-style="{ 'text-align': 'center', border: 'none' }"
+        :cell-style="rowStyle"
+      >
         <el-table-column prop="airStation" label="空压站" min-width="30%">
           <!-- 用插槽的方法来改变颜色! -->
           <template slot-scope="scope">
@@ -11,14 +15,23 @@
         </el-table-column>
         <el-table-column prop="time1" label="第一次补气压力" min-width="30%">
           <template slot-scope="scope">
-            <input type="text" v-model="scope.row.time1" :style="{ color: '#1953FC' }">
-            <span style="margin-left:10px; color: #1953FC;">KPa</span>
+            <input
+              type="number"
+              v-model="scope.row.time1"
+              :style="{ color: '#1953FC' }"
+              @input="validateInput(scope.row, 'time1')"
+            />
+            <span style="margin-left: 10px; color: #1953fc">KPa</span>
           </template>
         </el-table-column>
         <el-table-column prop="time2" label="第二次补气压力" min-width="30%">
           <template slot-scope="scope">
-            <input type="text" v-model="scope.row.time2" :style="{ color: '#1953FC' }"><span
-              style="margin-left:10px; color: #1953FC;">KPa</span>
+            <input
+              type="number"
+              v-model="scope.row.time2"
+              :style="{ color: '#1953FC' }"
+              @input="validateInput(scope.row, 'time2')"
+            /><span style="margin-left: 10px; color: #1953fc">KPa</span>
           </template>
         </el-table-column>
       </el-table>
@@ -38,7 +51,27 @@ export default {
   mounted() {
     this.getData2R2();
   },
+  computed: {
+    lastValidValue() {
+      // 记录每行每个字段的上一次有效值
+      const result = {};
+      this.tableData.forEach((row) => {
+        result[row.id] = { time1: row.time1, time2: row.time2 };
+      });
+      return result;
+    },
+  },
   methods: {
+    validateInput(row, field) {
+      const value = row[field];
+      if (isNaN(value)) {
+        // 如果输入的不是数字，将其重置为上一次的有效值
+        row[field] = this.lastValidValue[row.id][field];
+      } else {
+        // 如果输入的是数字，记录下来
+        this.lastValidValue[row.id][field] = value;
+      }
+    },
     // eslint-disable-next-line
     rowStyle({ row, column, rowIndex, columnIndex }) {
       //设置表格每行间隔边框
@@ -97,7 +130,7 @@ export default {
           airStation: "空压站3",
           time1: "---------- KPa",
           time2: "---------- KPa",
-        }
+        },
       ],
     };
   },
@@ -152,6 +185,4 @@ export default {
   background-color: transparent !important;
   font-weight: 10000;
 }
-
-
 </style>

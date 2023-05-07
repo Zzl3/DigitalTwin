@@ -15,13 +15,23 @@
         </el-table-column>
         <el-table-column prop="time1" label="运行时间段1" min-width="40%">
           <template slot-scope="scope">
-            <input type="text" v-model="scope.row.time1" :style="{ color: '#1953FC' }" />
+            <input
+              type="number"
+              v-model="scope.row.time1"
+              :style="{ color: '#1953FC' }"
+              @input="validateInput(scope.row, 'time1')"
+            />
             <span style="margin-left: 10px; color: #1953fc">h</span>
           </template>
         </el-table-column>
         <el-table-column prop="time2" label="运行时间段2" min-width="30%">
           <template slot-scope="scope">
-            <input type="text" v-model="scope.row.time2" :style="{ color: '#1953FC' }" />
+            <input
+              type="number"
+              v-model="scope.row.time2"
+              :style="{ color: '#1953FC' }"
+              @input="validateInput(scope.row, 'time2')"
+            />
             <span style="margin-left: 10px; color: #1953fc">h</span>
           </template>
         </el-table-column>
@@ -33,12 +43,6 @@
 <script>
 import { getData } from "@/api/runstrategy";
 export default {
-  props: {
-    childData: {
-      type: Object,
-      required: true,
-    },
-  },
   mounted() {
     this.getData2R1();
   },
@@ -63,6 +67,16 @@ export default {
       ],
     };
   },
+  computed: {
+    lastValidValue() {
+      // 记录每行每个字段的上一次有效值
+      const result = {};
+      this.tableData.forEach((row) => {
+        result[row.id] = { time1: row.time1, time2: row.time2 };
+      });
+      return result;
+    },
+  },
   watch: {
     tableData: {
       deep: true, // 监听对象变化
@@ -73,6 +87,16 @@ export default {
     },
   },
   methods: {
+    validateInput(row, field) {
+      const value = row[field];
+      if (isNaN(value)) {
+        // 如果输入的不是数字，将其重置为上一次的有效值
+        row[field] = this.lastValidValue[row.id][field];
+      } else {
+        // 如果输入的是数字，记录下来
+        this.lastValidValue[row.id][field] = value;
+      }
+    },
     getData2R1() {
       getData()
         .then((data) => {
