@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { getOnandoffs } from "@/api/onandoff";
+import { getOnandoffs,getnewOnandoffs } from "@/api/onandoff";
 export default {
   mounted() {
     this.draw();
@@ -234,6 +234,37 @@ export default {
           console.log(error); // 处理错误
         });
     },
+    getData2L1new() {
+      //这里从数据取新的值
+      getnewOnandoffs()
+        .then((data) => {
+          console.log(data);
+          var chart = this.$echarts.getInstanceByDom(document.getElementById("2l1"));
+          var option = chart.getOption();
+          for (let i = 0; i < data.length; i++) {
+            // console.log(data[i].air1);
+            // console.log(data[i].air2);
+            option.series[0].data[i] = data[i].air1;
+            option.series[1].data[i] = data[i].air2;
+            option.series[2].data[i] = data[i].air3;
+          }
+          chart.setOption(option);
+        })
+        .catch((error) => {
+          console.log(error); // 处理错误
+        });
+    }
+  },
+  created() {
+    this.$watch(
+      () => this.$root.iftemp,
+      (newVal) => {
+        console.log('Global iftemp changed:', newVal)
+        if (newVal == "true") {
+          this.getData2L1new();
+        }
+      }
+    )
   },
 };
 </script>

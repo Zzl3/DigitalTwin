@@ -10,7 +10,9 @@ namespace auth.Database
         public DbSet<User> Users { get; set; }
         public DbSet<Data> Datas { get; set; }
         public DbSet<Consumption> Consumptions { get; set; }
+        public DbSet<NewConsumption> NewConsumptions { get; set; }
         public DbSet<Onandoff> Onandoffs { get; set; }
+        public DbSet<NewOnandoff> NewOnandoffs { get; set; }
         public DbSet<Userusing> Userusings { get; set; }
         public DbSet<Userloading> Userloadings { get; set; }
         public DbSet<Recentconsumption> Recentconsumptions { get; set; }

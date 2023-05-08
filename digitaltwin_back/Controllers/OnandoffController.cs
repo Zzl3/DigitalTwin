@@ -30,6 +30,19 @@ namespace auth.Controllers
             });
         }
 
+        [HttpGet("getnewDatas")]
+        public IActionResult getnewDatas()
+        {
+            var code = 200;
+            var msg = "success";
+            return Ok(new
+            {
+                code,
+                msg,
+                data=_OnandoffService.getNewOnandoffs().Result
+            });
+        }
+
         [HttpPost("deleteData")]
         public async Task<IActionResult> deleteData(int min)
         {

@@ -25,6 +25,11 @@ namespace auth.Services
             return await _database.Consumptions.ToListAsync();
         }
 
+        public async Task<List<NewConsumption>> getNewConsumptions()
+        {
+            return await _database.NewConsumptions.ToListAsync();
+        }
+
         public async Task<bool> addConsumption(Consumption consumption)
         {
             if (consumption == null) { 

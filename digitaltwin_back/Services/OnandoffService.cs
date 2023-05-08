@@ -25,6 +25,10 @@ namespace auth.Services
             return await _database.Onandoffs.ToListAsync();
         }
 
+        public async Task<List<NewOnandoff>> getNewOnandoffs()
+        {
+            return await _database.NewOnandoffs.ToListAsync();
+        }
         public async Task<bool> addOnandoff(Onandoff onandoff)
         {
             if (onandoff == null) { 

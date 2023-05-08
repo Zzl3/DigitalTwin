@@ -26,12 +26,18 @@
         <i class="el-icon-news titletext"></i>
         <p class="titletext">设置补气压力</p>
       </div>
-      <ElementR2 :R2Data="pR2Data" @R2DataChanged="updateR2ParentData"></ElementR2>
+      <ElementR2
+        :R2Data="pR2Data"
+        @R2DataChanged="updateR2ParentData"
+        @click="updateBestData"
+      ></ElementR2>
       <div class="threeButton">
-        <el-button type="primary" style="width: 200px" @click="updatedata"
+        <el-button type="primary" style="width: 200px" @click="getdata"
           >一键应用优化效果</el-button
         >
-        <el-button type="primary" style="width: 200px">应用</el-button>
+        <el-button type="primary" style="width: 200px" @click="updatedata"
+          >应用</el-button
+        >
         <el-button type="primary" style="width: 200px">重置</el-button>
       </div>
     </div>
@@ -83,6 +89,9 @@ export default {
       console.log("下面是父组件中R2的数据---");
       console.log(this.pR2Data);
     },
+    getdata() {
+      this.$router.go(0); //直接从数据库拿数据
+    },
     updatedata() {
       //传递给后端数据，从后端拿到优化数据
       const data = {
@@ -103,7 +112,7 @@ export default {
         .then((data) => {
           console.log(data); // 处理获取到的数据
           //由于存到了数据库中，所以直接刷新页面重新从数据库获得数据
-          this.$router.go(0)
+          //this.$router.go(0)
           this.$message({
             message: "应用优化成功",
             type: "success",
@@ -112,6 +121,7 @@ export default {
         .catch((error) => {
           console.log(error); // 处理错误
         });
+      this.$root.iftemp = "true"; //更新数据
     },
   },
 };

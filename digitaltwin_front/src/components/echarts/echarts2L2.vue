@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { getConsumption } from "@/api/consumption";
+import { getConsumption,getnewConsumption } from "@/api/consumption";
 export default {
   mounted() {
     this.draw();
@@ -260,6 +260,37 @@ export default {
           console.log(error); // 处理错误
         });
     },
+    getData2L2new() {
+      //这里从数据取新的值
+      getnewConsumption()
+        .then((data) => {
+          var chart = this.$echarts.getInstanceByDom(document.getElementById("2l2"));
+          var option = chart.getOption();
+          console.log(data)
+          for (let i = 0; i < data.length; i++) {
+            // console.log(data[i].before);
+            // console.log(data[i].after);
+            //before不需要改变
+            // option.series[0].data[i] = data[i].before;
+            option.series[1].data[i] = data[i].after;
+          }
+          chart.setOption(option);
+        })
+        .catch((error) => {
+          console.log(error); // 处理错误
+        });
+    }
+  },
+  created() {
+    this.$watch(
+      () => this.$root.iftemp,
+      (newVal) => {
+        console.log('Global iftemp changed:', newVal)
+        if (newVal == "true") {
+          this.getData2L2new();
+        }
+      }
+    )
   },
 };
 </script>

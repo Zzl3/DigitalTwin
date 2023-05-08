@@ -21,3 +21,14 @@ export function upgradeData(data) {
           }
     });
 }
+
+export function upgradeBestData() {
+  return get('/runstrategy/upgradeBestData')
+    .then(response => {
+        if (response.code === 200) {
+            return response.data
+          } else {
+            throw new Error(response.msg || 'Unknown error');
+          }
+    });
+}

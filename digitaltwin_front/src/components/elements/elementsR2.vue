@@ -112,6 +112,9 @@ export default {
       };
       this.$emit("R2DataChanged", newChildData);
     },
+    getData2R2new() {
+      //这里从数据取新的值
+    }
   },
   data() {
     return {
@@ -142,6 +145,17 @@ export default {
         console.log("tableData changed: ", newVal, oldVal);
       },
     },
+  },
+  created() {
+    this.$watch(
+      () => this.$root.iftemp,
+      (newVal) => {
+        console.log('Global iftemp changed:', newVal)
+        if (newVal == "true") {
+          this.getData2R2new() 
+        }
+      }
+    )
   },
 };
 </script>

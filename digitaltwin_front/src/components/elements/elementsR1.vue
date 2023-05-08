@@ -121,6 +121,20 @@ export default {
       };
       this.$emit("R1DataChanged", newChildData);
     },
+    getData2R1new() {
+      //这里从数据取新的值
+    }
+  },
+  created() {
+    this.$watch(
+      () => this.$root.iftemp,
+      (newVal) => {
+        console.log('Global iftemp changed:', newVal)
+        if (newVal == "true") {
+          this.getData2R1new()
+        }
+      }
+    )
   },
 };
 </script>
