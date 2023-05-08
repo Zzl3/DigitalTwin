@@ -17,6 +17,8 @@
           <template slot-scope="scope">
             <input
               type="number"
+              min="0"
+              max="12"
               v-model="scope.row.time1"
               :style="{ color: '#1953FC' }"
               @input="validateInput(scope.row, 'time1')"
@@ -28,6 +30,8 @@
           <template slot-scope="scope">
             <input
               type="number"
+              min="12"
+              max="24"
               v-model="scope.row.time2"
               :style="{ color: '#1953FC' }"
               @input="validateInput(scope.row, 'time2')"
@@ -94,6 +98,11 @@ export default {
         row[field] = this.lastValidValue[row.id][field];
       } else {
         // 如果输入的是数字，记录下来
+        // if ((value < 12 || value > 24 && field=="time2")||(value < 0 || value > 12 && field=="time1")) {
+        //   alert("输入超过范围，请重新输入！");
+        // } else {
+        //   this.lastValidValue[row.id][field] = value;
+        // }
         this.lastValidValue[row.id][field] = value;
       }
     },
@@ -123,18 +132,18 @@ export default {
     },
     getData2R1new() {
       //这里从数据取新的值
-    }
+    },
   },
   created() {
     this.$watch(
       () => this.$root.iftemp,
       (newVal) => {
-        console.log('Global iftemp changed:', newVal)
+        console.log("Global iftemp changed:", newVal);
         if (newVal == "true") {
-          this.getData2R1new()
+          this.getData2R1new();
         }
       }
-    )
+    );
   },
 };
 </script>

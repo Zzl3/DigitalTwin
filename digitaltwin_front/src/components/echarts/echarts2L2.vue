@@ -1,10 +1,23 @@
 <template>
-  <div id="2l2" style="width: 705px; height: 280px"></div>
+  <div>
+    <div class="texttable">
+      <span>优化前：{{this.before}}</span>
+      <br>
+      <span>优化后：{{this.after}}</span>
+    </div>
+    <div id="2l2" style="width: 705px; height: 280px"></div>
+  </div>
 </template>
 
 <script>
-import { getConsumption,getnewConsumption } from "@/api/consumption";
+import { getConsumption, getnewConsumption } from "@/api/consumption";
 export default {
+  data() {
+    return {
+      before: 0,
+      after: 0,
+    };
+  },
   mounted() {
     this.draw();
     this.getData2L2();
@@ -85,7 +98,6 @@ export default {
                 fontSize: 14,
               },
             },
-
 
             splitLine: {
               lineStyle: {
@@ -254,6 +266,9 @@ export default {
             option.series[0].data[i] = data[i].before;
             option.series[1].data[i] = data[i].after;
           }
+          
+          this.before = data[data.length - 1].before;
+          this.after = data[data.length - 1].after;
           chart.setOption(option);
         })
         .catch((error) => {
@@ -266,7 +281,7 @@ export default {
         .then((data) => {
           var chart = this.$echarts.getInstanceByDom(document.getElementById("2l2"));
           var option = chart.getOption();
-          console.log(data)
+          console.log(data);
           for (let i = 0; i < data.length; i++) {
             // console.log(data[i].before);
             // console.log(data[i].after);
@@ -274,23 +289,35 @@ export default {
             // option.series[0].data[i] = data[i].before;
             option.series[1].data[i] = data[i].after;
           }
+          //this.before = data[data.length - 1].before;
+          this.after = data[data.length - 1].after;
           chart.setOption(option);
         })
         .catch((error) => {
           console.log(error); // 处理错误
         });
-    }
+    },
   },
   created() {
     this.$watch(
       () => this.$root.iftemp,
       (newVal) => {
-        console.log('Global iftemp changed:', newVal)
+        console.log("Global iftemp changed:", newVal);
         if (newVal == "true") {
           this.getData2L2new();
         }
       }
-    )
+    );
   },
 };
 </script>
+
+<style scoped>
+.texttable{
+  font-size: 16px;
+  text-align: left;
+  margin-top: -40px;
+  margin-bottom: 10px;
+  margin-left:450px;
+}
+</style>

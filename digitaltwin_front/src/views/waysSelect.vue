@@ -18,6 +18,13 @@
       <div style="text-align: left">
         <i class="el-icon-news titletext"></i>
         <p class="titletext">设置空压站开关时间</p>
+        <el-tooltip
+          class="item"
+          content="时间段1应在0-12之间，时间段2应在12-24之间"
+          placement="top"
+        >
+          <i style="margin-left: 20px" class="el-icon-question"></i>
+        </el-tooltip>
       </div>
       <ElementR1 :R1Data="pR1Data" @R1DataChanged="updateR1ParentData"></ElementR1>
     </div>
@@ -38,7 +45,7 @@
         <el-button type="primary" style="width: 200px" @click="updatedata"
           >应用</el-button
         >
-        <el-button type="primary" style="width: 200px">重置</el-button>
+        <el-button type="primary" style="width: 200px" @click="resetdata">重置</el-button>
       </div>
     </div>
   </div>
@@ -93,35 +100,86 @@ export default {
       this.$router.go(0); //直接从数据库拿数据
     },
     updatedata() {
-      //传递给后端数据，从后端拿到优化数据
-      const data = {
-        s1time1: this.pR1Data.S1time1,
-        s1time2: this.pR1Data.S1time2,
-        s2time1: this.pR1Data.S2time1,
-        s2time2: this.pR1Data.S2time2,
-        s3time1: this.pR1Data.S3time1,
-        s3time2: this.pR1Data.S3time2,
-        s1pressure1: this.pR2Data.S1time1,
-        s1pressure2: this.pR2Data.S1time2,
-        s2pressure1: this.pR2Data.S2time1,
-        s2pressure2: this.pR2Data.S2time2,
-        s3pressure1: this.pR2Data.S3time1,
-        s3pressure2: this.pR2Data.S3time2,
-      };
-      upgradeData(data)
-        .then((data) => {
-          console.log(data); // 处理获取到的数据
-          //由于存到了数据库中，所以直接刷新页面重新从数据库获得数据
-          //this.$router.go(0)
-          this.$message({
-            message: "应用优化成功",
-            type: "success",
-          });
-        })
-        .catch((error) => {
-          console.log(error); // 处理错误
+      if (this.pR1Data.S1time1 < 0 || this.pR1Data.S1time1 > 12) {
+        this.$message({
+          message: "空压站1时间1应在0-12之间",
+          type: "warning",
         });
-      this.$root.iftemp = "true"; //更新数据
+        return;
+      }
+      if (this.pR1Data.S1time2 < 12 || this.pR1Data.S1time2 > 24) {
+        this.$message({
+          message: "空压站1时间2应在12-24之间",
+          type: "warning",
+        });
+        return;
+      }
+      if (this.pR1Data.S2time1 < 0 || this.pR1Data.S2time1 > 12) {
+        this.$message({
+          message: "空压站2时间1应在0-12之间",
+          type: "warning",
+        });
+        return;
+      }
+      if (this.pR1Data.S2time2 < 12 || this.pR1Data.S2time2 > 24) {
+        this.$message({
+          message: "空压站2时间2应在12-24之间",
+          type: "warning",
+        });
+        return;
+      }
+      if (this.pR1Data.S3time1 < 0 || this.pR1Data.S3time1 > 12) {
+        this.$message({
+          message: "空压站3时间1应在0-12之间",
+          type: "warning",
+        });
+        return;
+      }
+      if (this.pR1Data.S3time2 < 12 || this.pR1Data.S3time2 > 24) {
+        this.$message({
+          message: "空压站3时间2应在12-24之间",
+          type: "warning",
+        });
+        return;
+      } else {
+        //传递给后端数据，从后端拿到优化数据
+        const data = {
+          s1time1: this.pR1Data.S1time1,
+          s1time2: this.pR1Data.S1time2,
+          s2time1: this.pR1Data.S2time1,
+          s2time2: this.pR1Data.S2time2,
+          s3time1: this.pR1Data.S3time1,
+          s3time2: this.pR1Data.S3time2,
+          s1pressure1: this.pR2Data.S1time1,
+          s1pressure2: this.pR2Data.S1time2,
+          s2pressure1: this.pR2Data.S2time1,
+          s2pressure2: this.pR2Data.S2time2,
+          s3pressure1: this.pR2Data.S3time1,
+          s3pressure2: this.pR2Data.S3time2,
+        };
+        upgradeData(data)
+          .then((data) => {
+            console.log(data); // 处理获取到的数据
+            //由于存到了数据库中，所以直接刷新页面重新从数据库获得数据
+            //this.$router.go(0)
+            this.$message({
+              message: "应用优化成功",
+              type: "success",
+            });
+          })
+          .catch((error) => {
+            console.log(error); // 处理错误
+          });
+        this.$root.iftemp = "true"; //更新数据
+
+        setTimeout(() => {
+          // 方法区
+          this.$root.iftemp = "false";
+        }, 500);
+      }
+    },
+    resetdata() {
+      this.$router.go(0); //直接从数据库拿数据
     },
   },
 };

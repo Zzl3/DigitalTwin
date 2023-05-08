@@ -8,6 +8,7 @@ namespace auth.Models
     public class NewOnandoff
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("min")]
         public int min { get; set; }
         [Column("air1")]

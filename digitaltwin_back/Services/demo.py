@@ -302,21 +302,26 @@ def main():
     # print('脚本名为：', sys.argv[0])
     # for i in range(1, len(sys.argv)):
     #     print('参数 %s 为：%s' % (i, sys.argv[i]))
-    space={'Time1':int(sys.argv[1]),
-       'Target1':int(sys.argv[2]),
-       'Time2':int(sys.argv[3]),
-       'Target2':int(sys.argv[4]),
-       'Time3':int(sys.argv[5]),
-       'Target3':int(sys.argv[6]),
-       'Time4':int(sys.argv[7]),
-       'Target4':int(sys.argv[8]),
-       'Time5':int(sys.argv[9]),
-       'Target5':int(sys.argv[10]),
-       'Time6':int(sys.argv[11]),
-       'Target6':int(sys.argv[12]),
+    space={'Time1':float(sys.argv[1]),
+       'Target1':float(sys.argv[2]),
+       'Time2':float(sys.argv[3]),
+       'Target2':float(sys.argv[4]),
+       'Time3':float(sys.argv[5]),
+       'Target3':float(sys.argv[6]),
+       'Time4':float(sys.argv[7]),
+       'Target4':float(sys.argv[8]),
+       'Time5':float(sys.argv[9]),
+       'Target5':float(sys.argv[10]),
+       'Time6':float(sys.argv[11]),
+       'Target6':float(sys.argv[12]),
        'Q_ratio_12':np.random.uniform(0,1),
        'Q_ratio_3_1':np.random.uniform(0,1)}
-    print(CpdAirSystem_Simulation5(space))
+    result = CpdAirSystem_Simulation5(space)
+    print(list(result[4]))
+    print(list(result[5]))
+    print(list(result[6]))
+    print(result[7])
+    
 
 
 if __name__ == "__main__":

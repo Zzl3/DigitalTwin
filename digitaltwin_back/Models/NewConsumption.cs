@@ -8,6 +8,7 @@ namespace auth.Models
     public class NewConsumption
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("min")]
         public int min { get; set; }
         [Column("before")]
