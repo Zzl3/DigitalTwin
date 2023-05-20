@@ -9,6 +9,9 @@
         <el-button @click="waySele">策略选择</el-button>
         <el-button @click="digiTwin">数字孪生</el-button>
         <el-button @click="statiForm">统计报表</el-button>
+        <el-button @click="dataRecord">数据记录</el-button>
+        <!-- Alarm status -->
+        <el-button @click="alarmStatus">报警状态</el-button>
       </div>
       <p class="pTime">
         {{ dateFormat(date) }}
@@ -57,6 +60,12 @@ export default {
     },
     statiForm() {
       this.$router.push("/statisticalForm");
+    },
+    dataRecord() {
+      this.$router.push("/dataRecord");
+    },
+    alarmStatus() {
+      this.$router.push("/alarmStatus");
     }
   },
 };
