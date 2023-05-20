@@ -8,6 +8,7 @@
         <el-button @click="dataAna">数据分析</el-button>
         <el-button @click="waySele">策略选择</el-button>
         <el-button @click="digiTwin">数字孪生</el-button>
+        <el-button @click="statiForm">统计报表</el-button>
       </div>
       <p class="pTime">
         {{ dateFormat(date) }}
@@ -54,6 +55,9 @@ export default {
     digiTwin() {
       this.$router.push("/digitalTwin");
     },
+    statiForm() {
+      this.$router.push("/statisticalForm");
+    }
   },
 };
 </script>

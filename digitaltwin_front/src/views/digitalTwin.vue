@@ -1,14 +1,13 @@
 <template>
   <div id="twin">
-    <!-- <div id="console">
-        {{ camera_data }}
-    </div> -->
-    <br />
+    <br>
+    <bottomDiv id="bottomdiv"></bottomDiv>
     <div id="three"></div>
   </div>
 </template>
 
 <script lang="ts">
+import bottomDiv from "@/components/digitalTwin/bottomDiv.vue";
 //import { integrityStream } from "ssri";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
@@ -28,6 +27,9 @@ export default {
   },
   mounted() {
     this.$nextTick(this.init);
+  },
+  components: {
+    bottomDiv,
   },
   methods: {
     init() {
@@ -124,7 +126,6 @@ export default {
 <style scoped>
 #three {
   width: 100%;
-  height: 90%;
   /* display: flex; */
 }
 #console {
@@ -134,5 +135,13 @@ export default {
 }
 #twin {
   margin-top: 60px;
+}
+#bottomdiv {
+  z-index: 999999;
+  position: fixed;
+  left:80;
+  width:100%;
+  bottom: 0px;
+  height: 200px;
 }
 </style>

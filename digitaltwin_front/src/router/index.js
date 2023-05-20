@@ -30,6 +30,11 @@ const routes = [
     name: 'dataTest',
     component: () => import('../views/dataTest.vue')
   },
+  {
+    path: '/statisticalForm',
+    name: 'statisticalForm',
+    component: () => import('../views/statisticalForm.vue')
+  },
 ]
 
 const router = new VueRouter({
