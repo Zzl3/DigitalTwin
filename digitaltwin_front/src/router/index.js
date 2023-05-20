@@ -8,7 +8,7 @@ const routes = [
     path: '/',
     name: 'home',
     //component: () => import('../views/HomeView.vue'),
-    redirect:'/digitalAnalytics',
+    redirect: '/digitalAnalytics',
   },
   {
     path: '/digitalAnalytics',
@@ -35,6 +35,16 @@ const routes = [
     name: 'statisticalForm',
     component: () => import('../views/statisticalForm.vue')
   },
+  {
+    path: '/dataRecord',
+    name: 'dataRecord',
+    component: () => import('../views/dataRecord.vue')
+  },
+  {
+    path: '/alarmStatus',
+    name: 'alarmStatus',
+    component: () => import('../views/alarmStatus.vue')
+  }
 ]
 
 const router = new VueRouter({
