@@ -18,11 +18,7 @@
       <div style="text-align: left">
         <i class="el-icon-news titletext"></i>
         <p class="titletext">设置空压站开关时间</p>
-        <el-tooltip
-          class="item"
-          content="时间段1应在0-12之间，时间段2应在12-24之间"
-          placement="top"
-        >
+        <el-tooltip class="item" content="时间段1应在0-12之间，时间段2应在12-24之间" placement="top">
           <i style="margin-left: 20px" class="el-icon-question"></i>
         </el-tooltip>
       </div>
@@ -33,18 +29,10 @@
         <i class="el-icon-news titletext"></i>
         <p class="titletext">设置补气压力</p>
       </div>
-      <ElementR2
-        :R2Data="pR2Data"
-        @R2DataChanged="updateR2ParentData"
-        @click="updateBestData"
-      ></ElementR2>
+      <ElementR2 :R2Data="pR2Data" @R2DataChanged="updateR2ParentData" @click="updateBestData"></ElementR2>
       <div class="threeButton">
-        <el-button type="primary" style="width: 200px" @click="getdata"
-          >一键应用优化效果</el-button
-        >
-        <el-button type="primary" style="width: 200px" @click="updatedata"
-          >应用</el-button
-        >
+        <el-button type="primary" style="width: 200px" @click="getdata">一键应用优化效果</el-button>
+        <el-button type="primary" style="width: 200px" @click="updatedata">应用</el-button>
         <el-button type="primary" style="width: 200px" @click="resetdata">重置</el-button>
       </div>
     </div>
@@ -232,6 +220,7 @@ export default {
   display: inline-block;
   margin-left: 10px;
 }
+
 .threeButton {
   margin-top: 40px;
 }

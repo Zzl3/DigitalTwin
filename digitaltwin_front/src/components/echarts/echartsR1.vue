@@ -8,6 +8,7 @@ export default {
   mounted() {
     this.draw();
     this.getDataR1();
+    this.setDate();
   },
   methods: {
     draw() {
@@ -124,6 +125,22 @@ export default {
           console.log(error); // 处理错误
         });
     },
+    setDate() {
+      var chart = this.$echarts.getInstanceByDom(document.getElementById("r1"));
+      var option = chart.getOption();
+      // var listDate = option.xAxis[0].data;
+      var listDate = [];
+      var date = new Date();
+      var month = date.getMonth() + 1;
+      for (let i = 5; i >= 0; i--) {
+        var day = date.getDate();
+        day = day - i;
+        var time = month + "." + day;
+        listDate.push(time);
+      }
+      option.xAxis[0].data = listDate;
+      chart.setOption(option);
+    }
   },
 };
 </script>
