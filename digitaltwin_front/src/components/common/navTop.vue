@@ -3,15 +3,15 @@
     <p style="display: inline-block; float: left; margin-left: 20px;font-size: 25px;font-weight: bold;">
       Sense-Air空压系统数字孪生与智能运维平台
     </p>
-    <div style="display: inline-block; float: right; margin-top: 15px; margin-right: 20px">
-      <div style="display: inline-block; float: left; margin-right: 200px">
+    <div style="display: inline-block; float: right; margin-top: 15px; margin-left:20px">
+      <div style="display: inline-block; float: left; margin-right: 160px">
         <el-button @click="dataAna">数据分析</el-button>
         <el-button @click="waySele">策略选择</el-button>
         <el-button @click="digiTwin">数字孪生</el-button>
         <el-button @click="statiForm">统计报表</el-button>
         <el-button @click="dataRecord">数据记录</el-button>
-        <!-- Alarm status -->
         <el-button @click="alarmStatus">报警状态</el-button>
+        <el-button @click="deviceRecord">仪表统计</el-button>
       </div>
       <p class="pTime">
         {{ dateFormat(date) }}
@@ -66,6 +66,9 @@ export default {
     },
     alarmStatus() {
       this.$router.push("/alarmStatus");
+    },
+    deviceRecord() {
+      this.$router.push("/deviceRecord");
     }
   },
 };
