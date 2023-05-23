@@ -1,12 +1,8 @@
 <template>
   <div>
     <div class="table-container">
-      <el-table
-        :data="tableData"
-        :row-style="{ height: '50px' }"
-        :header-cell-style="{ 'text-align': 'center', border: 'none' }"
-        :cell-style="rowStyle"
-      >
+      <el-table :data="tableData" :row-style="{ height: '50px' }"
+        :header-cell-style="{ 'text-align': 'center', border: 'none' }" :cell-style="rowStyle">
         <el-table-column prop="airStation" label="空压站" min-width="30%">
           <!-- 用插槽的方法来改变颜色! -->
           <template slot-scope="scope">
@@ -15,23 +11,15 @@
         </el-table-column>
         <el-table-column prop="time1" label="第一次补气压力" min-width="30%">
           <template slot-scope="scope">
-            <input
-              type="number"
-              v-model="scope.row.time1"
-              :style="{ color: '#1953FC' }"
-              @input="validateInput(scope.row, 'time1')"
-            />
-            <span style="margin-left: 10px; color: #1953fc">KPa</span>
+            <input type="number" v-model="scope.row.time1" :style="{ color: '#1953FC' }"
+              @input="validateInput(scope.row, 'time1')" />
+            <span style="margin-left: 10px; color: #1953fc">kPa</span>
           </template>
         </el-table-column>
         <el-table-column prop="time2" label="第二次补气压力" min-width="30%">
           <template slot-scope="scope">
-            <input
-              type="number"
-              v-model="scope.row.time2"
-              :style="{ color: '#1953FC' }"
-              @input="validateInput(scope.row, 'time2')"
-            /><span style="margin-left: 10px; color: #1953fc">KPa</span>
+            <input type="number" v-model="scope.row.time2" :style="{ color: '#1953FC' }"
+              @input="validateInput(scope.row, 'time2')" /><span style="margin-left: 10px; color: #1953fc">kPa</span>
           </template>
         </el-table-column>
       </el-table>
@@ -121,18 +109,18 @@ export default {
       tableData: [
         {
           airStation: "空压站1",
-          time1: "---------- KPa",
-          time2: "---------- KPa",
+          time1: "---------- kPa",
+          time2: "---------- kPa",
         },
         {
           airStation: "空压站2",
-          time1: "---------- KPa",
-          time2: "---------- KPa",
+          time1: "---------- kPa",
+          time2: "---------- kPa",
         },
         {
           airStation: "空压站3",
-          time1: "---------- KPa",
-          time2: "---------- KPa",
+          time1: "---------- kPa",
+          time2: "---------- kPa",
         },
       ],
     };
@@ -152,7 +140,7 @@ export default {
       (newVal) => {
         console.log('Global iftemp changed:', newVal)
         if (newVal == "true") {
-          this.getData2R2new() 
+          this.getData2R2new()
         }
       }
     )

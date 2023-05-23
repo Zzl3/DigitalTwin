@@ -108,7 +108,6 @@ export default {
         var time = month + "." + day;
         listDate.push(time);
       }
-      listDate.push(time);
       option.xAxis[0].data = listDate;
       chart.setOption(option);
     }

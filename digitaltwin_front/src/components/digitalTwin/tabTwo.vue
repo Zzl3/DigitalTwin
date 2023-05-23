@@ -1,5 +1,5 @@
 <template>
-  <div style="display: flex; flex-direction: row" class="content"> 
+  <div style="display: flex; flex-direction: row" class="content">
     <div id="m1" style="width: 150px; height: 150px"></div>
     <div style="margin-left:30px">
       <p style="margin-bottom: -2px;margin-top:-10px">今日已用气量</p>
@@ -22,7 +22,7 @@ export default {
       var txt = 0.1009;
       var option = {
         title: {
-          text: "气电比\n"+txt + "%\n"+"kw.h/m2",
+          text: "气电比\n" + txt + "%\n" + "kw.h/m2",
           x: "center",
           y: "center",
           textStyle: {
@@ -56,7 +56,7 @@ export default {
                 name: "已使用",
                 itemStyle: {
                   normal: {
-                    color: "#1852FC",
+                    color: "#409EFF",
                     label: {
                       show: false,
                     },
