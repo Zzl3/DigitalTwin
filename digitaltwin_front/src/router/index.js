@@ -44,6 +44,11 @@ const routes = [
     path: '/alarmStatus',
     name: 'alarmStatus',
     component: () => import('../views/alarmStatus.vue')
+  },
+  {
+    path: '/deviceRecord',
+    name: 'deviceRecord',
+    component: () => import('../views/deviceRecord.vue')
   }
 ]
 
