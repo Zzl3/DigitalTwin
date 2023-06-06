@@ -38,7 +38,7 @@ export default {
       getPercent()
         .then((data) => {
           console.log(data); // 处理获取到的数据
-          that.percent=data
+          that.percent=data.toFixed(2)
         })
         .catch((error) => {
           console.log(error); // 处理错误
@@ -49,7 +49,7 @@ export default {
       getNumber()
         .then((data) => {
           console.log(data); // 处理获取到的数据
-          that.number=data
+          that.number=data.toFixed(2)
         })
         .catch((error) => {
           console.log(error); // 处理错误

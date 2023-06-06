@@ -3,18 +3,26 @@
     <div id="m1" style="width: 150px; height: 150px"></div>
     <div style="margin-left:30px">
       <p style="margin-bottom: -2px;margin-top:-10px">今日已用气量</p>
-      <el-button type="danger">381349 m2</el-button>
+      <el-button type="danger">{{water}} m2</el-button>
       <el-divider style="margin-top:-20px"></el-divider>
       <p style="margin-bottom: -2px;margin-top:-20px">今日已累计用电</p>
-      <el-button type="primary">38800 kW.h</el-button>
+      <el-button type="primary">{{elec}} kW.h</el-button>
     </div>
   </div>
 </template>
 
 <script>
+import { getWaterAndElectricity } from "@/api/c++_right";
 export default {
   mounted() {
     this.draw();
+    this.getWaterAndElectricity();
+  },
+  data() {
+    return {
+      water:0.00,
+      elec:0.00
+    };
   },
   methods: {
     draw() {
@@ -80,6 +88,18 @@ export default {
       window.addEventListener("resize", function () {
         myChart.resize();
       });
+    },
+    getWaterAndElectricity() {
+      var that=this
+      getWaterAndElectricity()
+        .then((data) => {
+          console.log(data); // 处理获取到的数据
+          that.water=(data+40000).toFixed(2)
+          that.elec=(data+40000-10232).toFixed(2)
+        })
+        .catch((error) => {
+          console.log(error); // 处理错误
+        });
     },
   },
 };

@@ -9,19 +9,43 @@
             <p>压力上限报警</p>
         </div>
         <div id="numtext">
-            <p><el-tag>0.00 Bar</el-tag></p>
-            <p><el-tag>0.00 Bar</el-tag></p>
-            <p><el-tag>0.00 Bar</el-tag></p>
+            <p><el-tag>{{stress}}Bar</el-tag></p>
+            <p><el-tag>{{upstress}}Bar</el-tag></p>
+            <p><el-tag>{{downstress}}Bar</el-tag></p>
         </div>
     </div>
   </div>
 </template>
 
 <script>
+import { getStress } from "@/api/c++_right";
 import numberCard from "@/components/digitalTwin/numberCard.vue";
 export default {
   components: {
     numberCard,
+  },
+  methods: {
+    getStress() {
+      var that=this
+      getStress()
+        .then((data) => {
+          console.log(data); // 处理获取到的数据
+          that.stress=data.toFixed(2)
+        })
+        .catch((error) => {
+          console.log(error); // 处理错误
+        });
+    },
+  },
+  mounted() {
+    this.getStress();
+  },
+  data() {
+    return {
+      stress:0,
+      upstress:200.00,
+      downstress:10.00,
+    };
   },
 };
 </script>
