@@ -24,6 +24,12 @@
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Reference Include="cliDll">
+	    <HintPath>..\..\cliDll\cliDll\cliDll.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+
 	<ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 
 </Project>

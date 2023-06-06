@@ -17,11 +17,11 @@
             d="M1408 1216q0 26-19 45t-45 19h-896q-26 0-45-19t-19-45 19-45l448-448q19-19 45-19t45 19l448 448q19 19 19 45z"
           ></path>
         </svg>
-        20%
+        {{percent}}%
       </p>
     </div>
     <div class="data">
-      <p>4.81 bar</p>
+      <p>{{number}} bar</p>
       <!-- <div class="range">
         <div class="fill"></div>
       </div> -->
@@ -30,7 +30,45 @@
 </template>
 
 <script>
-export default {};
+import { getPercent,getNumber } from "@/api/c++_left";
+export default {
+  methods: {
+    getPercent() {
+      var that=this
+      getPercent()
+        .then((data) => {
+          console.log(data); // 处理获取到的数据
+          that.percent=data
+        })
+        .catch((error) => {
+          console.log(error); // 处理错误
+        });
+    },
+    getNumber() {
+      var that=this
+      getNumber()
+        .then((data) => {
+          console.log(data); // 处理获取到的数据
+          that.number=data
+        })
+        .catch((error) => {
+          console.log(error); // 处理错误
+        });
+    },
+  },
+  mounted() {
+    this.getPercent();
+    this.getNumber();
+  },
+  data() {
+    return {
+      percent:0,
+      number:4.81,
+    };
+  },
+
+};
+
 </script>
 
 <style scoped>
