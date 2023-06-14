@@ -3,7 +3,7 @@
     <div class="table-container">
       <el-table
         :data="tableData"
-        :row-style="{ height: '20px' }"
+        :row-style="{ height: '10%' }"
         :header-cell-style="{ 'text-align': 'center', border: 'none' }"
         :cell-style="{ 'text-align': 'center', border: 'none' }"
       >

@@ -1,5 +1,5 @@
 <template>
-  <div id="m4" style="width: 600px; height: 180px"></div>
+  <div id="m4" style="width: 90%; height: 65%"></div>
 </template>
 
 <script>
@@ -12,6 +12,9 @@ export default {
   methods: {
     draw() {
       var myChart = this.$echarts.init(document.getElementById("m4"));
+      window.addEventListener('resize', function () {
+        myChart.resize();
+      });
       var option = {
         tooltip: {
           trigger: "axis",

@@ -31,9 +31,9 @@
       </div>
       <ElementR2 :R2Data="pR2Data" @R2DataChanged="updateR2ParentData" @click="updateBestData"></ElementR2>
       <div class="threeButton">
-        <el-button type="primary" style="width: 200px" @click="getdata">一键应用优化效果</el-button>
-        <el-button type="primary" style="width: 200px" @click="updatedata">应用</el-button>
-        <el-button type="primary" style="width: 200px" @click="resetdata">重置</el-button>
+        <el-button type="primary" style="width: 30%" @click="getdata">一键应用优化效果</el-button>
+        <el-button type="primary" style="width: 30%" @click="updatedata">应用</el-button>
+        <el-button type="primary" style="width: 30%" @click="resetdata">重置</el-button>
       </div>
     </div>
   </div>
@@ -175,53 +175,53 @@ export default {
 
 <style>
 #box2l1 {
-  width: 700px;
-  height: 360px;
+  width: 44%;
+  height: 42%;
   position: absolute;
-  left: 44px;
-  top: 30px;
+  left: 2%;
+  top: 1%;
   margin: 0 0;
 }
 
 #box2l2 {
-  width: 700px;
-  height: 360px;
+  width: 44%;
+  height: 42%;
   position: absolute;
-  left: 44px;
-  top: 400px;
+  left: 2%;
+  top: 44%;
   margin: 0 0;
 }
 
 #box2r1 {
-  width: 700px;
-  height: 360px;
+  width: 44%;
+  height: 30%;
   position: absolute;
-  top: 30px;
+  top: 1%;
   margin: 0 0;
-  right: 44px;
+  right: 2%;
 }
 
 #box2r2 {
-  width: 700px;
-  height: 360px;
+  width: 44%;
+  height: 42%;
   position: absolute;
   margin: 0 0;
-  right: 44px;
-  top: 400px;
+  right: 2%;
+  top: 35%;
 }
 
 .content {
-  border-radius: 10px;
+  border-radius: 5%;
   background: rgba(255, 255, 255, 0.5);
   box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
 }
 
 .titletext {
   display: inline-block;
-  margin-left: 10px;
+  margin-left: 5%;
 }
 
 .threeButton {
-  margin-top: 40px;
+  margin-top: 5%;
 }
 </style>

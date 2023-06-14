@@ -26,7 +26,7 @@ export default {
   },
   data() {
     return {
-      usage:0.00
+      usage:14.00
     };
   },
 }

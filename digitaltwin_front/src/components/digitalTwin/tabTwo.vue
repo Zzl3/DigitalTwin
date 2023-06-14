@@ -20,8 +20,8 @@ export default {
   },
   data() {
     return {
-      water:0.00,
-      elec:0.00
+      water:3.00,
+      elec:20.00
     };
   },
   methods: {

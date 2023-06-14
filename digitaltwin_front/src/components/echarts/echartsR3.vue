@@ -1,5 +1,5 @@
 <template>
-  <div id="r3" style="width: 370px; height: 225px"></div>
+  <div id="r3" style="width: 90%; height: 110%"></div>
 </template>
 
 <script>
@@ -13,6 +13,9 @@ export default {
     draw() {
       // 基于准备好的dom，初始化echarts实例
       var myChart = this.$echarts.init(document.getElementById("r3"));
+      window.addEventListener('resize', function () {
+        myChart.resize();
+      });
       // 指定图表的配置项和数据
       var option = {
         tooltip: {

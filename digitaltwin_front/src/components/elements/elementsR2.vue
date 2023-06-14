@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="table-container">
-      <el-table :data="tableData" :row-style="{ height: '50px' }"
+      <el-table :data="tableData" :row-style="{ height: '10%' }"
         :header-cell-style="{ 'text-align': 'center', border: 'none' }" :cell-style="rowStyle">
         <el-table-column prop="airStation" label="空压站" min-width="30%">
           <!-- 用插槽的方法来改变颜色! -->

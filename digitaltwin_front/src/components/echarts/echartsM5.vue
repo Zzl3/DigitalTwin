@@ -3,7 +3,7 @@
     <el-select v-model="selectedValue" placeholder="请选择">
       <el-option v-for="option in options" :key="option.value" :label="option.label" :value="option.value"></el-option>
     </el-select>
-    <el-table :data="tableData" style="font-size: 14px; font-weight: bold; color: #000000" :row-style="{ height: '40px' }"
+    <el-table :data="tableData" style="font-size: 14px; font-weight: bold; color: #000000" :row-style="{ height: '20%' }"
       :cell-style="{ padding: '4px' }" :header-cell-style="{ background: '#eef1f6', color: '#606266' }"
       :show-header="false">
       <el-table-column prop="prop1" width="195" align="left"> </el-table-column>

@@ -1,5 +1,5 @@
 <template>
-  <div id="l1" style="width: 440px; height: 265px"></div>
+  <div id="l1" style="width: 100%; height: 120%"></div>
 </template>
 
 <script>
@@ -13,6 +13,9 @@ export default {
     draw() {
       // 基于准备好的dom，初始化echarts实例
       var myChart = this.$echarts.init(document.getElementById("l1"));
+      window.addEventListener('resize', function () {
+        myChart.resize();
+      });
       // 指定图表的配置项和数据
       var option = {
         xAxis: {
@@ -64,7 +67,7 @@ export default {
               position: "right", //在右方显示
               textStyle: {
                 //数值样式
-                fontSize: "11px",
+                fontSize: "5%",
                 color: "#666",
               },
               formatter: "{c}",

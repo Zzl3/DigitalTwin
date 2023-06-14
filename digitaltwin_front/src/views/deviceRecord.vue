@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div style="display: flex; justify-content: space-between; margin-top: 8%;">
+        <div style="display: flex; justify-content: space-between; margin-top: 4%;">
             <div>
                 <el-card class="box-card" >
                     <div slot="header" class="clearfix">

@@ -1,7 +1,7 @@
 <template>
   <div id="container" style="display: flex; flex-direction: row">
     <numberCard></numberCard>
-    <numberCard></numberCard>
+    <numberCard1></numberCard1>
     <div id="number" style="display: flex; flex-direction: row">
         <div id="text">
             <p>冷却水压力</p>
@@ -20,9 +20,11 @@
 <script>
 import { getStress } from "@/api/c++_right";
 import numberCard from "@/components/digitalTwin/numberCard.vue";
+import numberCard1 from "@/components/digitalTwin/numberCard1.vue";
 export default {
   components: {
     numberCard,
+    numberCard1,
   },
   methods: {
     getStress() {
@@ -42,8 +44,8 @@ export default {
   },
   data() {
     return {
-      stress:0,
-      upstress:200.00,
+      stress:20,
+      upstress:120.00,
       downstress:10.00,
     };
   },

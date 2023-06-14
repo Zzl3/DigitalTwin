@@ -5,7 +5,7 @@
       <br>
       <span>优化后：{{this.after}}</span>
     </div>
-    <div id="2l2" style="width: 705px; height: 280px"></div>
+    <div id="2l2" style="width: 100%; height: 220%"></div>
   </div>
 </template>
 
@@ -25,6 +25,9 @@ export default {
   methods: {
     draw() {
       var myChart = this.$echarts.init(document.getElementById("2l2"));
+      window.addEventListener('resize', function () {
+        myChart.resize();
+      });
       var option = {
         tooltip: {
           trigger: "axis",

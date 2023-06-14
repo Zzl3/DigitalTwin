@@ -1,5 +1,5 @@
 <template>
-    <div id="m3" style="width: 50px; height:50px"></div>
+    <div id="m3" style="width: 20%; height: 20%"></div>
 </template>
 
 <script>
@@ -12,6 +12,9 @@ export default {
     methods: {
         draw() {
             var myChart = this.$echarts.init(document.getElementById('m3'));
+            window.addEventListener('resize', function () {
+        myChart.resize();
+      });
             var txt = 22;
             var option = {
                 title: {

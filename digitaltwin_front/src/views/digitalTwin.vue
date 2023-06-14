@@ -134,14 +134,14 @@ export default {
   /* display: flex; */
 }
 #twin {
-  margin-top: 60px;
+  margin-top: -1%;
 }
 #bottomdiv {
   z-index: 999999;
   position: fixed;
   left:80;
+  bottom:0;
   width:100%;
-  bottom: 0px;
-  height: 200px;
+  height: 30%;
 }
 </style>

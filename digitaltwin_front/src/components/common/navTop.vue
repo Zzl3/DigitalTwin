@@ -76,7 +76,7 @@ export default {
 
 <style>
 #demo {
-  height: 100px;
+  height: 10%;
 }
 
 .pTime {

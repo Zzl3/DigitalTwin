@@ -1,16 +1,16 @@
 <template>
   <div class="table-wrapper">
-    <el-table :data="tableData" style="font-size: 10px" :row-style="{ height: '40px' }" :cell-style="{ padding: '4px' }"
+    <el-table :data="tableData" style="font-size: 10px" :row-style="{ height: '10%' }" :cell-style="{ padding: '4px' }"
       :header-cell-style="{ background: '#eef1f6', color: '#606266' }">
-      <el-table-column prop="prop1" label="空压站" width="85" align="center">
+      <el-table-column prop="prop1" label="空压站" width="80%" align="center">
       </el-table-column>
-      <el-table-column prop="prop2" label="补气时间占比" width="70" align="center">
+      <el-table-column prop="prop2" label="补气时间占比"  width="95%" align="center">
       </el-table-column>
-      <el-table-column prop="prop3" label="电费" width="70" align="center">
+      <el-table-column prop="prop3" label="电费"  width="80%" align="center">
       </el-table-column>
-      <el-table-column prop="prop4" label="平均压力" width="70" align="center">
+      <el-table-column prop="prop4" label="平均压力"  width="80%" align="center">
       </el-table-column>
-      <el-table-column prop="prop5" label="用户数" width="85" align="center">
+      <el-table-column prop="prop5" label="用户数"  width="80%" align="center">
       </el-table-column>
     </el-table>
   </div>
