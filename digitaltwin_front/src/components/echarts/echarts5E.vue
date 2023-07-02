@@ -38,31 +38,31 @@ export default {
             switch (index) {
                 case '1':
                     titleText = '4#空压站流量计&电表1';
-                    data = Array.from({ length: 7 }, () => Math.floor(Math.random() * 1000));
+                    data = Array.from({ length: 7 }, () => Math.random().toFixed(2)); // 生成小数点后两位的随机数
                     break;
                 case '2':
                     titleText = '4#空压站流量计&电表2';
-                    data = Array.from({ length: 7 }, () => Math.floor(Math.random() * 1000));
+                    data = Array.from({ length: 7 }, () => Math.random().toFixed(2));
                     break;
                 case '3':
                     titleText = '4#空压站流量计&电表3';
-                    data = Array.from({ length: 7 }, () => Math.floor(Math.random() * 1000));
+                    data = Array.from({ length: 7 }, () => Math.random().toFixed(2));
                     break;
                 case '4':
                     titleText = '4#空压站薄板中心';
-                    data = Array.from({ length: 7 }, () => Math.floor(Math.random() * 1000));
+                    data = Array.from({ length: 7 }, () => Math.random().toFixed(2));
                     break;
                 case '5':
                     titleText = '4#空压站8、9平台';
-                    data = Array.from({ length: 7 }, () => Math.floor(Math.random() * 1000));
+                    data = Array.from({ length: 7 }, () => Math.random().toFixed(2));
                     break;
                 case '6':
                     titleText = '4#空压站';
-                    data = Array.from({ length: 7 }, () => Math.floor(Math.random() * 1000));
+                    data = Array.from({ length: 7 }, () => Math.random().toFixed(2));
                     break;
                 default:
                     titleText = '默认标题';
-                    data = [200, 400, 600, 800, 1000, 1200, 1400];
+                    data = [0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4];
             }
 
             return {
@@ -71,17 +71,17 @@ export default {
                 },
                 tooltip: {
                     trigger: 'axis',
-                    formatter: '{b}<br/>{a}: {c} 度' // 格式化工具提示，显示单位为度
+                    formatter: '{b}<br/>{a}: {c}' // 格式化工具提示，显示气压比
                 },
                 xAxis: {
                     data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
                 },
                 yAxis: {
-                    name: '耗电量 (度)' // 设置 y 轴名称及单位
+                    name: '气压比' // 设置 y 轴名称
                 },
                 series: [
                     {
-                        name: '耗电量',
+                        name: '气压比',
                         type: 'line',
                         data: data
                     }

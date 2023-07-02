@@ -60,9 +60,6 @@ export default {
                     titleText = '4#空压站';
                     data = Array.from({ length: 7 }, () => Math.floor(Math.random() * 1000));
                     break;
-                default:
-                    titleText = '默认标题';
-                    data = [200, 400, 600, 800, 1000, 1200, 1400];
             }
 
             return {
@@ -71,17 +68,17 @@ export default {
                 },
                 tooltip: {
                     trigger: 'axis',
-                    formatter: '{b}<br/>{a}: {c} 度' // 格式化工具提示，显示单位为度
+                    formatter: '{b}<br/>{a}: {c} m³/h' // 格式化工具提示，显示单位为 m³/h
                 },
                 xAxis: {
                     data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
                 },
                 yAxis: {
-                    name: '耗电量 (度)' // 设置 y 轴名称及单位
+                    name: '流量 (m³/h)' // 设置 y 轴名称及单位
                 },
                 series: [
                     {
-                        name: '耗电量',
+                        name: '流量',
                         type: 'line',
                         data: data
                     }
