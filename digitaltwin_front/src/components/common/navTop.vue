@@ -3,8 +3,8 @@
     <p style="display: inline-block; float: left; margin-left: 20px;font-size: 24px;font-weight: bold;">
       Sense-Air空压系统数字孪生与智能运维平台
     </p>
-    <div style="display: inline-block; float: right; margin-top: 15px; margin-left:20px">
-      <div style="display: inline-block; float: left; margin-right: 50px">
+    <div style="display: inline-block; float: right; margin-top: 15px; margin-left:20px;">
+      <div style="display: inline-block; float: left; margin-right: 50px;">
         <el-button @click="dataAna">数据分析</el-button>
         <el-button @click="waySele">策略选择</el-button>
         <el-button @click="digiTwin">数字孪生</el-button>
@@ -77,6 +77,7 @@ export default {
 <style>
 #demo {
   height: 10%;
+  z-index: 9999;
 }
 
 .pTime {
